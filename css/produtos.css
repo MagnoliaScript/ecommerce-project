@@ -78,7 +78,7 @@
 
 .buy-btns{
     display: flex;
-    gap: 15px;
+    align-items: center;
 }
 
 .add-cart-btn{
@@ -90,6 +90,5 @@
 }
 
 .quantidade-btns{
-    padding: 6px 20px !important;
     border-radius: 30px;
 }

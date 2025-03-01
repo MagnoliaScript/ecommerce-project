@@ -3,6 +3,7 @@
 :root {
     --primary-color: #393bc5;
     --secondary-color: #484aec;
+    --tertiary-color: #292ba0;
     --background-color: #ffffff;
     --text-color: #303030;
     --font-family: 'Roboto', sans-serif;
@@ -107,7 +108,7 @@ header {
 }
 
 .newsletter-bg {
-    background: linear-gradient(to bottom, #2d2fb4, var(--primary-color));
+    background: linear-gradient(to bottom, var(--tertiary-color), var(--primary-color));
     color: white;
 }
 
