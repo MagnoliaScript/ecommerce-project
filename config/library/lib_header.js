@@ -32,7 +32,7 @@ addResource('css/loader.css');
 addResource('https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css');
 
 // Adicionando scripts corretamente
-addResource('https://code.jquery.com/jquery-3.6.0.min.js');
+addResource('js/jquery-3.7.1.min.js');
 addResource('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js');
 
 

@@ -4,8 +4,6 @@
 
 // FIM HEADER SCROLL
 
-
-
 // CARROSSÉIS INDEX
 
 // CARROSSEL CATEGORIAS
@@ -34,7 +32,6 @@ $(document).ready(function () {
   });
 });
 // FIM CARROSSEL CATEGORIAS
-
 
 
 // CARROSSEL PRODUTOS
@@ -109,17 +106,17 @@ $(document).ready(function () {
 
 // Funções para aumentar e diminuir a quantidade
 
-$(document).ready(function() {
+$(document).ready(function () {
   // Aumentar a quantidade
-  
-  $("#increase").click(function() {
+
+  $("#increase").click(function () {
     let currentValue = parseInt($("#quantity").val());
     $("#quantity").val(currentValue + 1);
   });
 
   // Diminuir a quantidade
-  
-  $("#decrease").click(function() {
+
+  $("#decrease").click(function () {
     let currentValue = parseInt($("#quantity").val());
     if (currentValue > 1) { // Previne que a quantidade fique negativa ou 0
       $("#quantity").val(currentValue - 1);
