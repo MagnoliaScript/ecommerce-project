@@ -10,6 +10,7 @@ function addStylesheet(href, integrity = '', crossorigin = '') {
 
 // Adicionando os estilos ao head
 addStylesheet('css/estrutura.css');
+addStylesheet('css/estrutura_paginas.css');
 addStylesheet('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
     'sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH', 'anonymous');
 addStylesheet('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
