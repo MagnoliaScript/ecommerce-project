@@ -14,4 +14,5 @@ addScript('https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.mi
 addScript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js',
   'sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy', 'anonymous');
 addScript('js/script.js');
+addScript('js/mascaras.js');
 addScript('js/owl.carousel.min.js');

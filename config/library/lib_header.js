@@ -18,3 +18,5 @@ addStylesheet('css/owl.carousel.min.css');
 addStylesheet('css/owl.theme.default.min.css');
 addStylesheet('css/loader.css');
 addStylesheet('https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css');
+addStylesheet('https://code.jquery.com/jquery-3.6.0.min.js');
+addStylesheet('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js');
