@@ -3,3 +3,8 @@
 .container-formulario {
     padding: 0rem 23rem!important;
 }
+
+.subtitulos-formulario {
+    text-align: center;
+    margin-bottom: 1rem;
+}
