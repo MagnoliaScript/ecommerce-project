@@ -5,7 +5,7 @@
 }
 
 .descricao-prod {
-    border-bottom: 1px solid rgb(224, 224, 224);
+    border-bottom: 1px solid rgb(226, 226, 226);
     padding-bottom: 1rem;
 }
 
@@ -45,11 +45,11 @@
 }
 
 .selecione-cor {
-    border-bottom: 1px solid rgb(224, 224, 224);
+    border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .escolha-tamanho {
-    border-bottom: 1px solid rgb(224, 224, 224);
+    border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .btn-tamanho-prod {
@@ -60,35 +60,55 @@
     width: auto;
 }
 
+.btn-tamanho-prod:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
 .tamanhos-prod {
     gap: 0.3rem !important;
 }
 
-.btn-cor-prod{
-    padding: 1rem   ;
+.btn-cor-prod {
+    padding: 1rem;
     background-color: rgb(219, 219, 219);
     border-radius: 50%;
     width: 5%;
 }
 
-.cores-prod{
+.cores-prod {
     display: flex;
     gap: 0.7rem !important;
 }
 
-.buy-btns{
+.buy-btns {
     display: flex;
     align-items: center;
+    gap: 0.7rem;
 }
 
-.add-cart-btn{
+.add-cart-btn {
     background-color: var(--primary-color) !important;
     color: white !important;
-    padding: 6px 20px !important;
+    padding: 11px 20px !important;
     border-radius: 30px;
-    width: 100%;
+    width: 98% !important;
 }
 
-.quantidade-btns{
+.quantidade-btns {
     border-radius: 30px;
+    border: solid 1px gray;
+    padding: 5px 0;
+}
+
+.quantidade-input {
+    border: none;
+}
+
+.consultar-cep {
+    border-radius: 30px !important;
+}
+
+.quantity-button {
+    border: none;
 }

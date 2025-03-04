@@ -264,21 +264,20 @@ header {
     transition: all 0.3s ease;
     background-color: #f8f9fa;
     padding: 10px 0;
-  }
-  
-  .navbar-categorias.compact {
+}
+
+.navbar-categorias.compact {
     padding: 5px 0;
     font-size: 14px;
     background-color: #343a40;
-  }
-  
-  .navbar-categorias a {
+}
+
+.navbar-categorias a {
     color: #333;
     font-size: 16px;
-  }
-  
-  .navbar-categorias.compact a {
+}
+
+.navbar-categorias.compact a {
     color: #fff;
     font-size: 14px;
-  }
-  
+}

@@ -30,7 +30,7 @@
 
 
     <!-- CATEGORIAS DIRETÓRIO -->
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
         <div class="container col-md-12">
             <div class="container d-flex p-4">
                 <span>Home > Masculino ></span>
@@ -43,12 +43,12 @@
         <!-- PRODUTO -->
         <!-- Foto do produto -->
         <div class="container produto-page col-md-12 d-flex rounded mb-5">
-            <div class="container col-md-2 mini-images">
+            <div class="container col-md-1 mini-images">
                 <img src="img/smartphone-product-example.png" class="card-img bg-light p-3 rounded">
                 <img src="img/smartphone-product-example.png" class="card-img bg-light p-3 rounded">
                 <img src="img/smartphone-product-example.png" class="card-img bg-light p-3 rounded">
             </div>
-            <div class="container foto-prod col-md-4 bg-light d-flex rounded">
+            <div class="container foto-prod col-md-5 bg-light d-flex rounded">
                 <img src="img/smartphone-product-example.png" class="card-img">
             </div>
             <!-- Informações do produto -->
@@ -82,24 +82,24 @@
                 </div>
                 <!-- Variaveis do produto -->
                 <div class="selecione-cor my-3">
-                    <div class="col-md-12 mb-2">
-                        <span>Selecione uma cor</span>
+                    <div class="col-md-12 mb-1">
+                        <span>Selecione uma Cor</span>
                     </div>
                     <div class="col-md-12 mb-3 cores-prod">
-                        <div class="">
-                            <a class="nav-link btn-cor-prod" href="#"></a>
-                        </div>      
                         <div class="">
                             <a class="nav-link btn-cor-prod" href="#"></a>
                         </div>
                         <div class="">
                             <a class="nav-link btn-cor-prod" href="#"></a>
-                        </div>              
+                        </div>
+                        <div class="">
+                            <a class="nav-link btn-cor-prod" href="#"></a>
+                        </div>
                     </div>
                 </div>
                 <div class="escolha-tamanho my-3">
-                    <div class="col-md-12 mb-2">
-                        <span>Selecione um tamanho</span>
+                    <div class="col-md-12 mb-1">
+                        <span>Selecione um Tamanho</span>
                     </div>
                     <div class="col-md-12 d-flex tamanhos-prod mb-3">
                         <div class="">
@@ -117,31 +117,372 @@
                     </div>
                 </div>
                 <!-- Fim Variaveis do produto -->
-            <!-- Botão quantidade e Adicionar ao Carrinho -->
-                <div class="my-3">
-                    <div class="buy-btns col-md-12 mb-2">
-                                <!-- Botão quantidade-->
-                        <div class="quantidade-btns col-md-4 mb-2 d-flex align-items-center">
-                                  <!-- Botão de diminuir -->
-                                  <button id="decrease" class="btn quantity-button">-</button>
-                            
-                                  <!-- Display da quantidade -->
-                                  <input type="text" id="quantity" class="form-control text-center mx-2" value="1" readonly>
-                            
-                                  <!-- Botão de aumentar -->
-                                  <button id="increase" class="btn quantity-button">+</button>
+                <!-- Botão quantidade e Adicionar ao Carrinho -->
+                <div class="buy-btns my-3 d-flex">
+                    <div class=" col-md-4 d-flex align-items-center justify-content-center">
+                        <div class="quantidade-btns d-flex align-items-center">
+                            <!-- Botão de diminuir -->
+                            <button id="decrease" class="btn quantity-button">-</button>
+
+                            <!-- Display da quantidade -->
+                            <input type="text" id="quantity" class="quantidade-input form-control text-center mx-2"
+                                value="1" readonly>
+
+                            <!-- Botão de aumentar -->
+                            <button id="increase" class="btn quantity-button">+</button>
                         </div>
-                        <div class="col-md-8 mb-2">
-                            <button id="buy-now" class="btn add-cart-btn">Adicionar ao Carrinho</button>
+                    </div>
+
+                    <!-- Botão de comprar -->
+                    <div class="col-md-8">
+                        <button id="buy-now" class="btn add-cart-btn">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+
+                <!-- Botão quantidade e Adicionar ao Carrinho Fim -->
+                <!-- Calcular frete e prazo -->
+                <div class="my-3">
+                    <span>Calcular Frete e Prazo<span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group consultar-cep">
+                                <input type="text" class="form-control" aria-label="CEP">
+                                <button class="btn" type="button">Consultar</button>
+                            </div>
+                            <div class="mt-1">
+                                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank"
+                                    class="text-decoration-none">
+                                    Não sei meu CEP
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M7.364 3.05a.5.5 0 0 1 .5-.5h5.086a.5.5 0 0 1 .5.5v5.086a.5.5 0 0 1-1 0V4.707L4.707 12.95a.5.5 0 0 1-.707-.707L11.793 4H7.864a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            <!-- Botão quantidade e Adicionar ao Carrinho Fim -->
+                <!-- Fim Calcular frete e prazo -->
 
+
+            </div>
+        </div>
+
+        <!-- Detalhes do Produto, Informações Adicionais e Avaliações -->
+        <div class="container">
+            <!-- Menu de Navegação -->
+            <ul class="nav nav-tabs justify-content-center" id="productTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="detalhes-tab" data-bs-toggle="tab" href="#detalhes" role="tab"
+                        aria-controls="detalhes" aria-selected="true">Detalhes do Produto</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="informacao-tab" data-bs-toggle="tab" href="#informacao" role="tab"
+                        aria-controls="informacao" aria-selected="false">Informação Adicional</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="avaliacoes-tab" data-bs-toggle="tab" href="#avaliacoes" role="tab"
+                        aria-controls="avaliacoes" aria-selected="false">Avaliações</a>
+                </li>
+            </ul>
+
+            <!-- Conteúdo das abas -->
+            <div class="tab-content mt-4" id="productTabsContent">
+                <!-- Detalhes do Produto -->
+                <div class="tab-pane fade show active" id="detalhes" role="tabpanel" aria-labelledby="detalhes-tab">
+                    <h4>Detalhes do Produto</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-12 mb-3">
+                            <div class="card p-3">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex ex, molestie a
+                                    magna sed, pulvinar vulputate lorem. Fusce ullamcorper, nisi id viverra
+                                    sollicitudin, odio lorem viverra ante, eu scelerisque nunc nisl at mi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informação Adicional -->
+                <div class="tab-pane fade" id="informacao" role="tabpanel" aria-labelledby="informacao-tab">
+                    <h4>Informações Adicionais</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-12 mb-3">
+                            <div class="card p-3">
+                                <h5>Especificações Técnicas</h5>
+                                <ul>
+                                    <li><strong>Cor:</strong> Preto</li>
+                                    <li><strong>Material:</strong> Alumínio</li>
+                                    <li><strong>Peso:</strong> 1,2 kg</li>
+                                    <li><strong>Garantia:</strong> 12 meses</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avaliações -->
+                <div class="tab-pane fade" id="avaliacoes" role="tabpanel" aria-labelledby="avaliacoes-tab">
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <h4>Avaliações do Produto (4)</h4>
+                        <div>
+                            <button class="btn btn-primary">Faça uma Avaliação</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <!-- Avaliação 1 -->
+                        <div class="col-md-6 mb-3">
+                            <div class="card p-3">
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0"><strong>Fulano</strong> <i
+                                            class="fas fa-check-circle text-success"></i></h6>
+                                </div>
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex ex, molestie a
+                                    magna sed, pulvinar vulputate lorem."</p>
+                                <small class="text-muted">Postado em 20 de Agosto, 2025</small>
+                            </div>
+                        </div>
+
+                        <!-- Avaliação 2 -->
+                        <div class="col-md-6 mb-3">
+                            <div class="card p-3">
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0"><strong>Fulano</strong> <i
+                                            class="fas fa-check-circle text-success"></i></h6>
+                                </div>
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex ex, molestie a
+                                    magna sed, pulvinar vulputate lorem."</p>
+                                <small class="text-muted">Postado em 20 de Agosto, 2025</small>
+                            </div>
+                        </div>
+
+                        <!-- Avaliação 3 -->
+                        <div class="col-md-6 mb-3">
+                            <div class="card p-3">
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0"><strong>Fulano</strong> <i
+                                            class="fas fa-check-circle text-success"></i></h6>
+                                </div>
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex ex, molestie a
+                                    magna sed, pulvinar vulputate lorem."</p>
+                                <small class="text-muted">Postado em 20 de Agosto, 2025</small>
+                            </div>
+                        </div>
+
+                        <!-- Avaliação 4 -->
+                        <div class="col-md-6 mb-3">
+                            <div class="card p-3">
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0"><strong>Fulano</strong> <i
+                                            class="fas fa-check-circle text-success"></i></h6>
+                                </div>
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex ex, molestie a
+                                    magna sed, pulvinar vulputate lorem."</p>
+                                <small class="text-muted">Postado em 20 de Agosto, 2025</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim Detalhes do Produto, Informações Adicionais e Avaliações -->
+
+    </div>
+
+    <!-- Itens Similares -->
+    <div class="container-fluid p-3">
+        <!-- Titulo -->
+        <div class="container categorias-titulo col-md-12">
+            <span>itens similares</span>
+        </div>
+
+        <div class="container col-md-12">
+            <div class="owl-carousel products-carousel owl-theme">
+                <div class="col product p-2">
+                    <div class="p-1">
+                        <!-- Foto do produto -->
+                        <div class="img-product bg-light p-4 rounded">
+                            <img src="img/241373007_1119_090-CALCA-JEANS-SKINNY-CINTURA-ALTA.png" class="card-img-top"
+                                alt="Produto">
+                        </div>
+                        <div class="product-body">
+                            <!-- Nome do produto -->
+                            <h5 class="product-title mt-3">Calça Jeans Skinny</h5>
+
+                            <!-- Estrelas de avaliação com a nota -->
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <span class="ms-2">4.5/5</span>
+                            </div>
+
+                            <!-- Preço do produto -->
+                            <div class="product-price d-flex mt-1">
+                                <p class="product-price">R$ 149,99</p>
+                                <p class="product-discount-price">R$ 169,99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col product p-2">
+                    <div class="p-1">
+                        <!-- Foto do produto -->
+                        <div class="img-product bg-light p-4 rounded">
+                            <img src="img/smartphone-product-example.png" class="card-img-top" alt="Produto">
+                        </div>
+                        <div class="product-body">
+                            <!-- Nome do produto -->
+                            <h5 class="product-title mt-3">Smartphone Samsung</h5>
+
+                            <!-- Estrelas de avaliação com a nota -->
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <span class="ms-2">4.5/5</span>
+                            </div>
+
+                            <!-- Preço do produto -->
+                            <div class="product-price d-flex mt-1">
+                                <p class="product-price">R$ 1889,99</p>
+                                <p class="product-discount-price">R$ 2289,99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col product p-2">
+                    <div class="p-1">
+                        <!-- Foto do produto -->
+                        <div class="img-product bg-light p-4 rounded">
+                            <img src="img/tenis-product-example.webp" class="card-img-top" alt="Produto">
+                        </div>
+                        <div class="product-body">
+                            <!-- Nome do produto -->
+                            <h5 class="product-title mt-3">Tênis Street Casual</h5>
+
+                            <!-- Estrelas de avaliação com a nota -->
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <span class="ms-2">4.5/5</span>
+                            </div>
+
+                            <!-- Preço do produto -->
+                            <div class="product-price d-flex mt-1">
+                                <p class="product-price">R$ 259,99</p>
+                                <p class="product-discount-price">R$ 239,99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col product p-2">
+                    <div class="p-1">
+                        <!-- Foto do produto -->
+                        <div class="img-product bg-light p-4 rounded">
+                            <img src="img/pulseira-product-example.webp" class="card-img-top" alt="Produto">
+                        </div>
+                        <div class="product-body">
+                            <!-- Nome do produto -->
+                            <h5 class="product-title mt-3">Pulseira Prata</h5>
+
+                            <!-- Estrelas de avaliação com a nota -->
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <span class="ms-2">4.5/5</span>
+                            </div>
+
+                            <!-- Preço do produto -->
+                            <div class="product-price d-flex mt-1">
+                                <p class="product-price">R$ 1889,99</p>
+                                <p class="product-discount-price">R$ 2289,99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col product p-2">
+                    <div class="p-1">
+                        <!-- Foto do produto -->
+                        <div class="img-product bg-light p-4 rounded">
+                            <img src="img/macbook-product-example.png" class="card-img-top" alt="Produto">
+                        </div>
+                        <div class="product-body">
+                            <!-- Nome do produto -->
+                            <h5 class="product-title mt-3">MacBook Air</h5>
+
+                            <!-- Estrelas de avaliação com a nota -->
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="stars">
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-fill text-warning"></span>
+                                    <span class="bi bi-star-half text-warning"></span>
+                                </div>
+                                <span class="ms-2">4.5/5</span>
+                            </div>
+
+                            <!-- Preço do produto -->
+                            <div class="product-price d-flex mt-1">
+                                <p class="product-price">R$ 5899,99</p>
+                                <p class="product-discount-price">R$ 5699,99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- FIM PRODUTO -->
+    <!-- Fim Itens Similares -->
 
 
 
