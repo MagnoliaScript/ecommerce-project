@@ -1,0 +1,157 @@
+.titulo-prod {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.descricao-prod {
+<<<<<<< HEAD
+    border-bottom: 1px solid rgb(226, 226, 226);
+=======
+    border-bottom: 1px solid rgb(224, 224, 224);
+>>>>>>> master
+    padding-bottom: 1rem;
+}
+
+.item-info-prod {
+    padding-left: 1.3rem !important;
+}
+
+.mini-images {
+    gap: 1rem !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: auto;
+    direction: rtl;
+}
+
+.foto-prod {
+    height: auto;
+    align-items: center;
+}
+
+.product-discount-price-prod {
+    font-weight: bold;
+    margin-left: 0.8rem;
+    color: gray;
+    text-decoration: line-through;
+    font-size: 1.3rem;
+}
+
+.product-price-prod {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.stars-prod {
+    font-size: 1.2rem;
+}
+
+.selecione-cor {
+<<<<<<< HEAD
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.escolha-tamanho {
+    border-bottom: 1px solid rgb(226, 226, 226);
+=======
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.escolha-tamanho {
+    border-bottom: 1px solid rgb(224, 224, 224);
+>>>>>>> master
+}
+
+.btn-tamanho-prod {
+    background-color: rgb(248 249 250);
+    color: black !important;
+    padding: 6px 20px !important;
+    border-radius: 30px;
+    width: auto;
+}
+
+<<<<<<< HEAD
+.btn-tamanho-prod:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+=======
+>>>>>>> master
+.tamanhos-prod {
+    gap: 0.3rem !important;
+}
+
+<<<<<<< HEAD
+.btn-cor-prod {
+    padding: 1rem;
+=======
+.btn-cor-prod{
+    padding: 1rem   ;
+>>>>>>> master
+    background-color: rgb(219, 219, 219);
+    border-radius: 50%;
+    width: 5%;
+}
+
+<<<<<<< HEAD
+.cores-prod {
+=======
+.cores-prod{
+>>>>>>> master
+    display: flex;
+    gap: 0.7rem !important;
+}
+
+<<<<<<< HEAD
+.buy-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.add-cart-btn {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    padding: 11px 20px !important;
+    border-radius: 30px;
+    width: 98% !important;
+}
+
+.quantidade-btns {
+    border-radius: 30px;
+    border: solid 1px gray;
+    padding: 5px 0;
+}
+
+.quantidade-input {
+    border: none;
+}
+
+.consultar-cep {
+    border-radius: 30px !important;
+}
+
+.quantity-button {
+    border: none;
+=======
+.buy-btns{
+    display: flex;
+    gap: 15px;
+}
+
+.add-cart-btn{
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    padding: 6px 20px !important;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.quantidade-btns{
+    padding: 6px 20px !important;
+    border-radius: 30px;
+>>>>>>> master
+}
