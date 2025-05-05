@@ -1,0 +1,7 @@
+{
+    "name": "magnoliascript/ecommerce-project",
+    "description": "Descrição do projeto",
+    "require": {
+      "twig/twig": "^3.0"
+    }
+  }

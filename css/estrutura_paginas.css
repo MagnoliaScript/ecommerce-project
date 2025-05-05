@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.container-formulario {
+    padding: 0rem 23rem!important;
+}
+
+.subtitulos-formulario {
+    text-align: center;
+    margin-bottom: 1rem;
+}

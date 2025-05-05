@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +13,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <body>
   <!-- LOADER -->
 
@@ -28,80 +28,129 @@
 
 
   <!-- BANNER -->
-  <section>
-    <div class="owl-carousel carousel-banner owl-theme mt-3">
-      <div class="item">
-        <a href="#">
-          <img src="img/banner-example-1.jpg" class="rounded" alt="Banner">
-        </a>
-      </div>
-      <div class="item">
-        <a href="#">
-          <img src="img/banner-example-2.jpg" class="rounded" alt="Banner">
-        </a>
-      </div>
-      <div class="item">
-        <a href="#">
-          <img src="img/banner-example-3.jpg" class="rounded" alt="Banner">
-        </a>
+  <section class="m-0">
+    <div class="container-custom">
+      <div class="row">
+        <div class="col-12">
+          <div class="owl-carousel carousel-banner owl-theme">
+            <div class="item">
+              <a href="#">
+                <img src="img/banner-example-1.jpg" class="img-fluid rounded w-100" alt="Banner 1">
+              </a>
+            </div>
+            <div class="item">
+              <a href="#">
+                <img src="img/banner-example-2.jpg" class="img-fluid rounded w-100" alt="Banner 2">
+              </a>
+            </div>
+            <div class="item">
+              <a href="#">
+                <img src="img/banner-example-3.jpg" class="img-fluid rounded w-100" alt="Banner 3">
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <!-- FIM BANNER -->
 
+  <!-- Banners da vitrine -->
+  <div class="container py-3">
+    <div class="banner-index-carousel owl-carousel owl-theme">
+
+      <div class="item">
+        <a href="#">
+          <img
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/7a25b053-c769-453e-8320-16d5a6b31e17___31e52628d80092b18d5ad2c49d33d440.png"
+            class="banner-index-img d-block w-100" alt="Banner 1">
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="#">
+          <img
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/7a25b053-c769-453e-8320-16d5a6b31e17___31e52628d80092b18d5ad2c49d33d440.png"
+            class="banner-index-img d-block w-100" alt="Banner 2">
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="#">
+          <img
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/7a25b053-c769-453e-8320-16d5a6b31e17___31e52628d80092b18d5ad2c49d33d440.png"
+            class="banner-index-img d-block w-100" alt="Banner 3">
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="#">
+          <img
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/7a25b053-c769-453e-8320-16d5a6b31e17___31e52628d80092b18d5ad2c49d33d440.png"
+            class="banner-index-img d-block w-100" alt="Banner 4">
+        </a>
+      </div>
+
+    </div>
+  </div>
 
 
-  <!-- INFORMAÇÕES DE COMPRA -->
-  <section>
-    <div class="container-fluid p-3">
-      <div class="info-compra container d-flex justify-content-center bg-light p-1">
-        <div class="col-md-3 p-3 border-end">
-          <span class="titulo-info-compra">5% off primeira compra</span><br>
-          <span>Cupom: SEUCUPOM</span>
-        </div>
-        <div class="col-md-3 p-3 border-end">
-          <span class="titulo-info-compra">Descontos à vista</span><br>
-          <span>5% no Pix</span>
-        </div>
-        <div class="col-md-3 p-3 border-end">
-          <span class="titulo-info-compra">Parcele em até 3X</span><br>
-          <span>Sem juros no cartão de crédito</span>
-        </div>
-        <div class="col-md-3 p-3">
-          <span class="titulo-info-compra">Frete Grátis</span><br>
-          <span>A partir de R$139 para todo Brasil</span>
-        </div>
+  <!-- Banners da vitrine -->
+  <div class="container py-3">
+    <div class="row banner-index d-flex">
+      <div class="col-md-12 mb-3 mb-md-0 banner-1">
+        <a href="#">
+          <img
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/fbf94760-e502-4c4a-973e-26801bfc1acc___70cb7db2e7e83efccb53c575091e36d5.png"
+            class="banner-index-img d-block w-100" alt="Banner">
+        </a>
       </div>
     </div>
-  </section>
-  <!-- FIM INFORMAÇÕES DE COMPRA -->
-
-
+  </div>
 
   <!-- NAVEGUE POR CATEGORIAS -->
   <section>
-    <div class="container-fluid p-3">
-      <div class="container categorias-titulo col-md-12">
-        <span>categorias em destaque</span>
+    <div class="container pb-5">
+      <div class="row titulo-vitrine py-3 pt-1">
+        <div class="col-12">
+          <span class="h4">Categorias em Destaque</span>
+        </div>
       </div>
-      <div class="container col-md-12">
+
+      <div class="row">
         <div class="owl-carousel categories-carousel owl-theme">
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525204708_fash.png"
-              class="d-block w-100" alt="..."></div>
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525218436_ele.png"
-              class="d-block w-100" alt="..."></div>
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525231018_bag.png"
-              class="d-block w-100" alt="..."></div>
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525239704_foot.png"
-              class="d-block w-100" alt="..."></div>
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525248057_gro.png"
-              class="d-block w-100" alt="..."></div>
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525255799_beauty.png"
-              class="d-block w-100" alt="..."></div>
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525275367_well.png"
-              class="d-block w-100" alt="..."></div>
-          <div class="item item-carousel"><img src="https://api.spicezgold.com/download/file_1734525286186_jw.png"
-              class="d-block w-100" alt="..."></div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525204708_fash.png" class="d-block w-100"
+              alt="Categoria 1">
+          </div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525218436_ele.png" class="d-block w-100"
+              alt="Categoria 2">
+          </div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525231018_bag.png" class="d-block w-100"
+              alt="Categoria 3">
+          </div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525239704_foot.png" class="d-block w-100"
+              alt="Categoria 4">
+          </div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525248057_gro.png" class="d-block w-100"
+              alt="Categoria 5">
+          </div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525255799_beauty.png" class="d-block w-100"
+              alt="Categoria 6">
+          </div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525275367_well.png" class="d-block w-100"
+              alt="Categoria 7">
+          </div>
+          <div class="item item-carousel">
+            <img src="https://api.spicezgold.com/download/file_1734525286186_jw.png" class="d-block w-100"
+              alt="Categoria 8">
+          </div>
         </div>
       </div>
     </div>
@@ -109,355 +158,174 @@
   <!-- FIM NAVEGUE POR CATEGORIAS -->
 
 
+
   <!-- INDEX -->
   <section>
     <!-- Carrossel de produtos vitrine -->
-    <div class="container-fluid p-3">
+    <div class="container py-3">
       <!-- Titulo da Vitrine -->
-      <div class="container categorias-titulo col-md-12">
-        <span>produtos populares</span>
-      </div>
-
-      <div class="container col-md-12">
-        <div class="owl-carousel products-carousel owl-theme">
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/241373007_1119_090-CALCA-JEANS-SKINNY-CINTURA-ALTA.png" class="card-img-top"
-                  alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Calça Jeans Skinny</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 149,99</p>
-                  <p class="product-discount-price">R$ 169,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/smartphone-product-example.png" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Smartphone Samsung</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 1889,99</p>
-                  <p class="product-discount-price">R$ 2289,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/tenis-product-example.webp" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Tênis Street Casual</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 259,99</p>
-                  <p class="product-discount-price">R$ 239,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/pulseira-product-example.webp" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Pulseira Prata</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 1889,99</p>
-                  <p class="product-discount-price">R$ 2289,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/macbook-product-example.png" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">MacBook Air</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 5899,99</p>
-                  <p class="product-discount-price">R$ 5699,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="row titulo-vitrine">
+        <div class="col-12">
+          <span class="h4">Produtos em Destaque</span>
         </div>
       </div>
+
+      <div class="row">
+        <div class="owl-carousel products-carousel owl-theme w-100">
+
+          <!-- PRODUTO -->
+          <div class="col item product">
+            <div class="card product-card h-100 rounded-3 position-relative mb-1">
+
+              <!-- Badge Desconto -->
+              <div class="position-absolute top-0 start-0 m-2">
+                <span class="badge bg-danger text-white product-badge">5% OFF</span>
+              </div>
+
+              <!-- Imagem do produto -->
+              <div class="product-image  p-4 d-flex align-items-center justify-content-center">
+                <img src="img/241373007_1119_090-CALCA-JEANS-SKINNY-CINTURA-ALTA.png" class="img-fluid"
+                  alt="Imagem Produto">
+              </div>
+
+              <div class="card-body product-body px-3 pt-3 pb-3">
+
+                <!-- Nome -->
+                <h6 class="product-title mb-2">
+                  Calça Jeans Skinny Cintura Alta Azul
+                </h6>
+
+                <!-- Avaliação -->
+                <div class="d-flex align-items-center mb-2">
+                  <div class="text-muted product-stars">
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <small class="text-muted ms-2">(0)</small>
+                </div>
+
+                <!-- Preço antigo e selo -->
+                <div class="d-flex align-items-center mb-1">
+                  <small class="text-muted text-decoration-line-through me-2">R$ 99,99</small>
+                  <span class="badge bg-success">Baixou 3%</span>
+                </div>
+
+                <!-- Preço parcelado -->
+                <p class="product-installment mb-1">R$ 99,99 ou em até 10x de R$ 99,99 sem juros ou</p>
+
+                <!-- Preço à vista -->
+                <p class="product-price mb-1">R$ 99,99
+                  <!-- Pix -->
+                  <small class="mb-2" style="font-weight: 100;  color: var(--primary-color);">No Pix</small>
+                </p>
+
+                <!-- Região -->
+                <span class="badge bg-success text-white">Sul e Sudeste</span>
+
+              </div>
+            </div>
+          </div>
+          <!-- FIM PRODUTO -->
+
+
+        </div>
+      </div>
+
       <div class="container ver-todos col-md-12 d-flex justify-content-center mt-4">
         <a class="nav-link btn-ver-todos" href="#">Ver Todos</a>
       </div>
     </div>
 
     <!-- Banners da vitrine -->
-    <div class="container-fluid p-3">
-      <div class="container banner-index col-md-12 d-flex">
-        <div class="col-md-6 banner-1">
+    <div class="container py-3">
+      <div class="row banner-index d-flex">
+        <div class="col-md-12 mb-3 mb-md-0 banner-1">
           <a href="#">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_827525-MLA72271401658_102023-OO.webp"
-              class="banner-index-img d-block w-100" alt="Banner">
-          </a>
-        </div>
-        <div class="col-md-6 banner-2">
-          <a href="#">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_827525-MLA72271401658_102023-OO.webp"
+            <img
+              src="https://drogariacoop.vtexassets.com/assets/vtex.file-manager-graphql/images/74768117-d3bb-483d-9e8f-836f8ffd8ad3___38cd81ac436dec620f5f4fee6b931233.png"
               class="banner-index-img d-block w-100" alt="Banner">
           </a>
         </div>
       </div>
     </div>
 
+
     <!-- Carrossel de produtos vitrine -->
-    <div class="container-fluid p-3">
+    <div class="container py-3">
       <!-- Titulo da Vitrine -->
-      <div class="container categorias-titulo col-md-12">
-        <span>produtos novos</span>
-      </div>
-
-      <div class="container col-md-12">
-        <div class="owl-carousel products-carousel owl-theme">
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/241373007_1119_090-CALCA-JEANS-SKINNY-CINTURA-ALTA.png" class="card-img-top"
-                  alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Calça Jeans Skinny</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 149,99</p>
-                  <p class="product-discount-price">R$ 169,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/smartphone-product-example.png" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Smartphone Samsung</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 1889,99</p>
-                  <p class="product-discount-price">R$ 2289,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/tenis-product-example.webp" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Tênis Street Casual</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 259,99</p>
-                  <p class="product-discount-price">R$ 239,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/pulseira-product-example.webp" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">Pulseira Prata</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 1889,99</p>
-                  <p class="product-discount-price">R$ 2289,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col product p-2">
-            <div class="p-1">
-              <!-- Foto do produto -->
-              <div class="img-product bg-light p-4 rounded">
-                <img src="img/macbook-product-example.png" class="card-img-top" alt="Produto">
-              </div>
-              <div class="product-body">
-                <!-- Nome do produto -->
-                <h5 class="product-title mt-3">MacBook Air</h5>
-
-                <!-- Estrelas de avaliação com a nota -->
-                <div class="d-flex align-items-center mt-1">
-                  <div class="stars">
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-fill text-warning"></span>
-                    <span class="bi bi-star-half text-warning"></span>
-                  </div>
-                  <span class="ms-2">4.5/5</span>
-                </div>
-
-                <!-- Preço do produto -->
-                <div class="product-price d-flex mt-1">
-                  <p class="product-price">R$ 5899,99</p>
-                  <p class="product-discount-price">R$ 5699,99</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="row titulo-vitrine">
+        <div class="col-12">
+          <span class="h4">Produtos Novos</span>
         </div>
       </div>
+
+      <div class="row">
+        <div class="owl-carousel products-carousel owl-theme w-100">
+
+          <!-- PRODUTO -->
+          <div class="col item product">
+            <div class="card product-card h-100 rounded-3 position-relative mb-1">
+
+              <!-- Badge Desconto -->
+              <div class="position-absolute top-0 start-0 m-2">
+                <span class="badge bg-danger text-white product-badge">5% OFF</span>
+              </div>
+
+              <!-- Imagem do produto -->
+              <div class="product-image p-4 d-flex align-items-center justify-content-center">
+                <img src="img/241373007_1119_090-CALCA-JEANS-SKINNY-CINTURA-ALTA.png" class="img-fluid"
+                  alt="Imagem Produto">
+              </div>
+
+              <div class="card-body product-body px-3 pt-3 pb-3">
+
+                <!-- Nome -->
+                <h6 class="product-title mb-2">
+                  Calça Jeans Skinny Cintura Alta Azul
+                </h6>
+
+                <!-- Avaliação -->
+                <div class="d-flex align-items-center mb-2">
+                  <div class="text-muted product-stars">
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <small class="text-muted ms-2">(0)</small>
+                </div>
+
+                <!-- Preço antigo e selo -->
+                <div class="d-flex align-items-center mb-1">
+                  <small class="text-muted text-decoration-line-through me-2">R$ 99,99</small>
+                  <span class="badge bg-success">Baixou 3%</span>
+                </div>
+
+                <!-- Preço parcelado -->
+                <p class="product-installment mb-1">R$ 99,99 ou em até 10x de R$ 99,99 sem juros ou</p>
+
+                <!-- Preço à vista -->
+                <p class="product-price mb-1">R$ 99,99
+                  <!-- Pix -->
+                  <small class="mb-2" style="font-weight: 100;  color: var(--primary-color);">No Pix</small>
+                </p>
+
+                <!-- Região -->
+                <span class="badge bg-success text-white">Sul e Sudeste</span>
+
+              </div>
+            </div>
+          </div>
+          <!-- FIM PRODUTO -->
+
+
+        </div>
+      </div>
+
       <div class="container ver-todos col-md-12 d-flex justify-content-center mt-4">
         <a class="nav-link btn-ver-todos" href="#">Ver Todos</a>
       </div>
@@ -465,7 +333,158 @@
   </section>
   <!-- FIM INDEX -->
 
+  <!-- CARROSSEL DE AVALIAÇÃO -->
+  <section>
+    <div class="container py-5">
+      <div class="row titulo-vitrine">
+        <div class="col-12">
+          <span class="h4">O que nossos clientes dizem</span>
+        </div>
+      </div>
+      <div class="owl-carousel owl-theme testimonials-carousel">
 
+        <!-- Avaliação 1 -->
+        <div class="item bg-light p-4 rounded shadow-sm text-center">
+          <h5 class="mb-1">Joana Silva</h5>
+          <p class="text-muted small mb-2">Compradora verificada</p>
+          <p class="text-muted">"A entrega foi super rápida e o atendimento excelente. Recomendo muito!"</p>
+          <div class="text-warning">
+            ★★★★★
+          </div>
+        </div>
+
+        <!-- Avaliação 2 -->
+        <div class="item bg-light p-4 rounded shadow-sm text-center">
+          <h5 class="mb-1">Carlos Mendes</h5>
+          <p class="text-muted small mb-2">Cliente há 2 anos</p>
+          <p class="text-muted">"Produtos de qualidade e ótimo preço. Amei meu novo celular!"</p>
+          <div class="text-warning">
+            ★★★★★
+          </div>
+        </div>
+
+        <!-- Avaliação 3 -->
+        <div class="item bg-light p-4 rounded shadow-sm text-center">
+          <h5 class="mb-1">Maria Oliveira</h5>
+          <p class="text-muted small mb-2">Usuária frequente</p>
+          <p class="text-muted">"Excelente plataforma e atendimento nota 10! Compro sempre aqui."</p>
+          <div class="text-warning">
+            ★★★★★
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM CARROSSEL DE AVALIAÇÃO -->
+
+  <!-- BLOG -->
+  <section>
+    <div class="container py-5">
+      <div class="row titulo-vitrine">
+        <div class="col-12">
+          <span class="h4">Últimas Postagens</span>
+        </div>
+      </div>
+      <div class="owl-carousel owl-theme blog-carousel">
+
+        <!-- Post 1 -->
+        <div class="item">
+          <div class="card border-0">
+            <img
+              src="https://jequiti.vtexassets.com/assets/vtex.file-manager-graphql/images/acd7ea47-315b-400e-b20c-8e4b9858c64d___ac67e60ade24965b76f03922ca787942.png"
+              class="card-img-top" alt="Post 1">
+            <div class="card-body">
+              <h5 class="card-title">Título do Post 1</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus at mi
+                laoreet sodales ut quis diam.</p>
+              <a href="#" class="btn btn-primary btn-sm">Leia mais</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="item">
+          <div class="card border-0">
+            <img
+              src="https://jequiti.vtexassets.com/assets/vtex.file-manager-graphql/images/acd7ea47-315b-400e-b20c-8e4b9858c64d___ac67e60ade24965b76f03922ca787942.png"
+              class="card-img-top" alt="Post 2">
+            <div class="card-body">
+              <h5 class="card-title">Título do Post 2</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus at mi
+                laoreet sodales ut quis diam.</p>
+              <a href="#" class="btn btn-primary btn-sm">Leia mais</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="item">
+          <div class="card border-0">
+            <img
+              src="https://jequiti.vtexassets.com/assets/vtex.file-manager-graphql/images/acd7ea47-315b-400e-b20c-8e4b9858c64d___ac67e60ade24965b76f03922ca787942.png"
+              class="card-img-top" alt="Post 3">
+            <div class="card-body">
+              <h5 class="card-title">Título do Post 3</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus at mi
+                laoreet sodales ut quis diam.</p>
+              <a href="#" class="btn btn-primary btn-sm">Leia mais</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM BLOG -->
+
+  <!-- Banners da vitrine -->
+  <div class="container py-3">
+    <div class="row banner-index d-flex">
+      <div class="col-md-12 mb-3 mb-md-0 banner-1">
+        <a href="#">
+          <img
+            src="https://drogariacoop.vtexassets.com/assets/vtex.file-manager-graphql/images/949d8f9a-ed79-42d8-a5af-bc9b05fe4e5c___b9b40053b821df559add94e8a9e081b4.png"
+            class="banner-index-img d-block w-100" alt="Banner">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFORMAÇÕES DE COMPRA -->
+  <section class="gray-bg">
+    <div class="container py-1">
+      <div class="info-compra container p-3">
+        <div class="row row-cols-2 row-cols-md-4 g-3 text-center">
+          <div class="col d-flex flex-column justify-content-center">
+            <span class="titulo-info-compra d-flex justify-content-center">
+              <i class="bi bi-percent me-3" style="font-size: 1.5rem; color: var(--primary-color)"></i>
+              5% off primeira compra
+            </span>
+          </div>
+          <div class="col flex-column justify-content-center">
+            <span class="titulo-info-compra d-flex justify-content-center">
+              <i class="bi bi-coin me-3" style="font-size: 1.5rem; color: var(--primary-color)"></i>
+              Descontos à vista
+            </span>
+          </div>
+          <div class="col flex-column justify-content-center">
+            <span class="titulo-info-compra d-flex justify-content-center">
+              <i class="bi bi-credit-card me-3" style="font-size: 1.5rem; color: var(--primary-color)"></i>
+              Parcele em até 3x
+            </span>
+          </div>
+          <div class="col justify-content-center">
+            <span class="titulo-info-compra d-flex justify-content-center">
+              <i class="bi bi-truck me-3" style="font-size: 1.5rem; color: var(--primary-color)"></i>
+              Frete grátis
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FIM INFORMAÇÕES DE COMPRA -->
 
   <!-- FOOTER -->
   <section id="footer-placeholder"></section>

@@ -1,122 +1,452 @@
-<body>
-  <!-- HEADER -->
-  <div class="headerWrapperFixed">
-    <div class="container-fluid col-md-12 faixa-header">
-      <nav class="row align-items-center">
-        <!-- Faixa -->
-        <div class="container d-flex justify-content-center">
-          <span class="navbar-text text-faixa-header">
-            Acima de R$ 200,00, o frete é GRÁTIS
-          </span>
-        </div>
-      </nav>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<!-- LOADER -->
+<div id="loader" class="loader-overlay">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Carregando...</span>
+  </div>
+</div>
+<!-- FIM LOADER -->
+
+<!-- MODAL NEWSLETTER -->
+<div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newsletterModalLabel">Assine nossa Newsletter</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Receba novidades e promoções por e-mail!</p>
+        <form>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Digite seu e-mail" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Inscrever-se</button>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
 
-    <header>
-      <div class="container col-md-12 header-desktop p-3">
-        <div class="container">
-          <div class="row align-items-center">
-            <!-- Logo -->
-            <div class="col-md-3">
-              <a href="index.html"><img src="img/logo.png" alt="LOGO" class="img-fluid logo"></a>
-            </div>
+<!-- SIDEBAR CARRINHO -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="cartSidebarLabel">Carrinho de Compras</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="cart-items text-center">
+      <p>Seu carrinho está vazio</p>
+      <p>Explore mais produtos e adicione ao carrinho!</p>
+      <a href="#" class="btn btn-outline-primary">Ver Produtos</a>
+    </div>
+  </div>
+  <div class="offcanvas-footer bg-light p-3">
+    <div class="progress mb-3" style="height: 10px;">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0"
+        aria-valuemax="100"></div>
+    </div>
+    <small class="text-muted justify-content-end">Faltam R$ 200,00 para frete grátis</small>
+    <div class="d-flex justify-content-between mb-3">
+      <p class="m-0">Subtotal</p>
+      <span>R$ 0,00</span>
+    </div>
+    <div class="d-flex justify-content-between mb-3">
+      <p class="m-0">Frete</p>
+      <span>R$ 0,00</span>
+    </div>
+    <div class="d-flex justify-content-between mb-4">
+      <p class="m-0">Total</p>
+      <span class="fw-bold">R$ 0,00</span>
+    </div>
+    <button class="btn btn-primary w-100" disabled>Finalizar Compra</button>
+  </div>
+</div>
 
-            <!-- Barra de pesquisa -->
-            <div class="col-md-6">
-              <form class="d-flex" role="search">
-                <input class="form-control buscar-produtos me-2 p-3" type="search" placeholder="Buscar por produtos..."
-                  aria-label="Search">
-                <button class="btn-search" type="submit">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                    class="bi bi-search" viewBox="0 0 16 16">
-                    <path
-                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                  </svg>
-                </button>
-              </form>
-            </div>
-
-            <!-- Login e Carrinho -->
-            <div class="col-md-3 d-flex align-items-center justify-content-end">
-              <a class="nav-link me-4 btn-login-header" href="#">Login</a>
-              <a href="#" class="cart-desktop">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#393bc5" class="bi bi-bag"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
-                </svg>
-              </a>
-            </div>
+<!-- SIDEBAR MOBILE ESTILO MISTO -->
+<div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <!-- TOPO -->
+  <div class="offcanvas-header text-white py-3" style="background-color: var(--primary-color);">
+    <div class="d-flex flex-column w-100">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-person-circle fs-4"></i>
+          <div class="small lh-sm">
+            <a href="login.html" class="text-reset text-decoration-none">
+              <strong>Entre ou cadastre-se</strong><br>para ver seus pedidos
+            </a>
           </div>
         </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+          aria-label="Fechar"></button>
       </div>
-
-      <!-- Navbar Categorias -->
-      <div>
-        <div class="container-fluid navbar-categorias col-md-12 d-flex justify-content-center bg-light">
-          <nav class="navbar navbar-expand-lg">
-            <div class="container">
-              <!-- Botão de menu para dispositivos móveis -->
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse d-flex align-items-center" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <!-- Dropdown Categorias -->
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle dropdown-btn me-4" href="#" role="button"
-                      data-bs-toggle="dropdown" aria-expanded="false">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-                      </svg>
-                      TODAS AS CATEGORIAS
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">ELETRONICOS</a></li>
-                      <li><a class="dropdown-item" href="#">FASHION</a></li>
-                      <li><a class="dropdown-item" href="#">BOLSAS</a></li>
-                      <li><a class="dropdown-item" href="#">BELEZA</a></li>
-                      <li><a class="dropdown-item" href="#">MANTIMENTOS</a></li>
-                      <li><a class="dropdown-item" href="#">CHAPÉUS</a></li>
-                      <li><a class="dropdown-item" href="#">BEM-ESTAR</a></li>
-                    </ul>
-                  </li>
-
-                  <!-- Categorias -->
-                  <li class="nav-item me-4">
-                    <a class="nav-link" aria-current="page" href="#">ELETRONICOS</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link" href="#">FASHION</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link" href="#">BOLSAS</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link" href="#">BELEZA</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link" href="#">MANTIMENTOS</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link" href="#">CHAPÉUS</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link" href="#">BEM-ESTAR</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <div class="d-flex justify-content-around text-center mt-3">
+        <div>
+          <a href="area_cliente.html" class="text-reset text-decoration-none">
+            <i class="bi bi-truck fs-5"></i><br><small>Pedidos</small>
+          </a>
+        </div>
+        <div>
+          <a href="area_cliente.html" class="text-reset text-decoration-none">
+            <i class="bi bi-heart fs-5"></i><br><small>Favoritos</small>
+          </a>
         </div>
       </div>
-    </header>
+    </div>
   </div>
 
-  <div class="container col-md-12">
+  <!-- CORPO -->
+  <div class="offcanvas-body p-0">
+    <div class="px-3 pt-3 fw-bold text-primary">Departamentos</div>
+    <ul class="list-group list-group-flush px-3">
+      <!-- Categorias com seta (estilo da primeira imagem) -->
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        Celulares e Smartphones <i class="bi bi-chevron-down"></i>
+      </li>
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        Eletrodomésticos <i class="bi bi-chevron-down"></i>
+      </li>
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        TVs e Vídeo <i class="bi bi-chevron-down"></i>
+      </li>
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        Informática <i class="bi bi-chevron-down"></i>
+      </li>
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        Mundo Pet <i class="bi bi-chevron-down"></i>
+      </li>
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        Mundo Casa <i class="bi bi-chevron-down"></i>
+      </li>
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        Mundo Gamer <i class="bi bi-chevron-down"></i>
+      </li>
+      <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
+        Beleza e Saúde <i class="bi bi-chevron-down"></i>
+      </li>
+    </ul>
+
+    <!-- Botão de destaque -->
+    <div class="px-3 py-3">
+      <button class="btn w-100 text-white fw-bold" style="background-color: var(--primary-color); border-radius: 8px;">
+        Todos os departamentos
+      </button>
+    </div>
+
+    <!-- Atalhos inferiores -->
+    <div class="px-3 pb-4">
+      <div class="border rounded p-2">
+        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+          <span class="text-primary">Meu Carrinho</span>
+          <i class="bi bi-chevron-right text-primary"></i>
+        </div>
+        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+          <span class="text-primary">Lista de Presente</span>
+          <i class="bi bi-chevron-right text-primary"></i>
+        </div>
+        <div class="d-flex justify-content-between align-items-center py-2">
+          <span class="text-primary">Alameda de Serviços</span>
+          <i class="bi bi-chevron-right text-primary"></i>
+        </div>
+      </div>
+    </div>
   </div>
-  <!-- FIM HEADER -->
-</body>
+</div>
+
+
+<!-- Faixa Gif -->
+<header class="headerWrapperFixed">
+  <div class="faixa-header-gif position-relative">
+    <div class="container-custom w-100">
+      <img src="img/header_gif.gif" alt="Frete Grátis" class="img-fluid w-100">
+    </div>
+  </div>
+
+  <!-- Faixa de frete -->
+  <div class="container-fluid faixa-header">
+    <nav class="row align-items-center">
+      <div class="container d-flex justify-content-center">
+        <span class="navbar-text text-white text-center">
+          Acima de R$ 200,00, o frete é GRÁTIS
+        </span>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <!-- HEADER FLUTUANTE MOBILE -->
+  <div class="header-flutuante-mobile fixed-top animate__animated" id="headerFlutuanteMobile" style="display: none;">
+    <div class="header-mobile d-md-none bg-white shadow-sm z-3">
+      <div class="container-fluid py-2 px-3">
+        <div class="d-flex justify-content-between align-items-center">
+
+          <!-- Botão Menu Offcanvas -->
+          <button class="btn p-0 border-0" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <i class="bi bi-list fs-1" style="color: var(--primary-color) !important;"></i>
+          </button>
+
+          <!-- Logo -->
+          <a href="index.html" class="mx-auto">
+            <img src="img/logo.png" alt="Logo" style="height: 50px;">
+          </a>
+
+          <!-- Carrinho -->
+          <a href="#" class="position-relative text-decoration-none" data-bs-toggle="offcanvas"
+            data-bs-target="#cartSidebar">
+            <i class="bi bi-cart2 fs-1 text-dark" style="color: var(--primary-color) !important;"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">
+              0
+            </span>
+          </a>
+        </div>
+
+        <!-- Campo de busca -->
+        <div class="mt-2">
+          <form class="d-flex" role="search">
+            <div class="input-group">
+              <input type="search" class="form-control p-3 border-end-0 rounded-start"
+                placeholder="Busque por marcas, produtos..." aria-label="Search">
+              <button class="btn-search-header p-3 border-start-0 rounded-end" type="submit">
+                <i class="bi bi-search text-white"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FIM HEADER FLUTUANTE MOBILE -->
+
+  <!-- HEADER MOBILE -->
+  <div class="header-mobile d-md-none bg-white shadow-sm z-3">
+    <div class="container-fluid py-2 px-3">
+      <div class="d-flex justify-content-between align-items-center">
+
+        <!-- Botão Menu Offcanvas -->
+        <button class="btn p-0 border-0" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+          <i class="bi bi-list fs-1" style="color: var(--primary-color) !important;"></i>
+        </button>
+
+        <!-- Logo -->
+        <a href="index.html" class="mx-auto">
+          <img src="img/logo.png" alt="Logo" style="height: 50px;">
+        </a>
+
+        <!-- Carrinho -->
+        <a href="#" class="position-relative text-decoration-none" data-bs-toggle="offcanvas"
+          data-bs-target="#cartSidebar">
+          <i class="bi bi-cart2 fs-1 text-dark" style="color: var(--primary-color) !important;"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">
+            0
+          </span>
+        </a>
+      </div>
+
+      <!-- Campo de busca -->
+      <div class="mt-2">
+        <form class="d-flex" role="search">
+          <div class="input-group">
+            <input type="search" class="form-control p-3 border-end-0 rounded-start"
+              placeholder="Busque por marcas, produtos..." aria-label="Search">
+            <button class="btn-search-header p-3 border-start-0 rounded-end" type="submit">
+              <i class="bi bi-search text-white"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- FIM HEADER MOBILE -->
+
+
+
+  <!-- HEADER FLUTUANTE DESKTOP -->
+  <div class="header-flutuante-desktop fixed-top animate__animated" id="headerFlutuanteDesktop" style="display: none;">
+    <div class="container header-desktop p-3">
+      <div class="row align-items-center">
+        <!-- Logo -->
+        <div class="col-md-3">
+          <a href="index.html">
+            <img src="img/logo.png" alt="LOGO" class="img-fluid logo">
+          </a>
+        </div>
+
+        <!-- Barra de pesquisa -->
+        <div class="col d-none d-md-block">
+          <form class="m-0" role="search">
+            <div class="input-group">
+              <input type="search" class="form-control p-3 border-end-0 rounded-start"
+                placeholder="Busque por marcas, produtos..." aria-label="Search">
+              <button class="btn-search-header p-3 border-start-0 rounded-end" type="submit">
+                <i class="bi bi-search text-white"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Ações do usuário -->
+        <div class="col acoes-usuario-header d-flex align-items-center justify-content-end gap-4">
+
+          <!-- Login -->
+          <a href="login.html" class="text-center position-relative text-decoration-none">
+            <i class="bi bi-person" style="font-size: 1.3rem;"></i><br>
+            <small>Entre ou Cadastre-se</small>
+          </a>
+
+          <!-- Pedidos -->
+          <a href="area_cliente.html" class="text-center position-relative text-decoration-none">
+            <i class="bi bi-box-seam" style="font-size: 1.3rem;"></i><br>
+            <small>Meus Pedidos</small>
+          </a>
+
+          <!-- Favoritos -->
+          <a href="area_cliente.html" class="text-center position-relative text-decoration-none">
+            <i class="bi bi-heart" style="font-size: 1.3rem;"></i><br>
+            <small>Meus Favoritos</small>
+          </a>
+
+          <!-- Carrinho -->
+          <a href="#" class="text-center position-relative text-decoration-none" data-bs-toggle="offcanvas"
+            data-bs-target="#cartSidebar">
+            <i class="bi bi-cart2" style="font-size: 1.5rem;"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+              0
+            </span>
+            <br><small>Carrinho</small>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Pesquisa Mobile -->
+      <div class="row d-md-none mt-3">
+        <div class="col-12">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 p-2" type="search" placeholder="Buscar por produtos..." aria-label="Search">
+            <button class="btn" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FIM HEADER FLUTUANTE DESKTOP -->
+
+  <!-- HEADER DESKTOP -->
+  <div class="container header-desktop p-3 d-none d-md-block">
+    <div class="row align-items-center">
+      <!-- Logo -->
+      <div class="col-md-3">
+        <a href="index.html">
+          <img src="img/logo.png" alt="LOGO" class="img-fluid logo">
+        </a>
+      </div>
+
+      <!-- Barra de pesquisa -->
+      <div class="col d-none d-md-block">
+        <form class="m-0" role="search">
+          <div class="input-group">
+            <input type="search" class="form-control p-3 border-end-0 rounded-start"
+              placeholder="Busque por marcas, produtos..." aria-label="Search">
+            <button class="btn-search-header p-3 border-start-0 rounded-end" type="submit">
+              <i class="bi bi-search text-white"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Ações do usuário -->
+      <div class="col acoes-usuario-header d-flex align-items-center justify-content-end gap-4">
+
+        <!-- Login -->
+        <a href="login.html" class="text-center position-relative text-decoration-none">
+          <i class="bi bi-person" style="font-size: 1.3rem;"></i><br>
+          <small>Entre ou Cadastre-se</small>
+        </a>
+
+        <!-- Pedidos -->
+        <a href="area_cliente.html" class="text-center position-relative text-decoration-none">
+          <i class="bi bi-box-seam" style="font-size: 1.3rem;"></i><br>
+          <small>Meus Pedidos</small>
+        </a>
+
+        <!-- Favoritos -->
+        <a href="area_cliente.html" class="text-center position-relative text-decoration-none">
+          <i class="bi bi-heart" style="font-size: 1.3rem;"></i><br>
+          <small>Meus Favoritos</small>
+        </a>
+
+        <!-- Carrinho -->
+        <a href="#" class="text-center position-relative text-decoration-none" data-bs-toggle="offcanvas"
+          data-bs-target="#cartSidebar">
+          <i class="bi bi-cart2" style="font-size: 1.5rem;"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            0
+          </span>
+          <br><small>Carrinho</small>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- Pesquisa Mobile -->
+    <div class="row d-md-none mt-3">
+      <div class="col-12">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 p-2" type="search" placeholder="Buscar por produtos..." aria-label="Search">
+          <button class="btn" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- FIM HEADER DESKTOP -->
+
+  <!-- Navbar Categorias Desktop -->
+  <div class="container-fluid navbar-categorias d-none d-lg-flex justify-content-center p-0">
+    <nav class="navbar navbar-expand-lg p-0">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <!-- Dropdown -->
+            <li class="nav-item dropdown me-4">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-list"></i> Todas as Categorias
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Eletrônicos</a></li>
+                <li><a class="dropdown-item" href="#">Fashion</a></li>
+                <li><a class="dropdown-item" href="#">Bolsas</a></li>
+                <li><a class="dropdown-item" href="#">Beleza</a></li>
+                <li><a class="dropdown-item" href="#">Mantimentos</a></li>
+                <li><a class="dropdown-item" href="#">Chapéus</a></li>
+                <li><a class="dropdown-item" href="#">Bem-estar</a></li>
+              </ul>
+            </li>
+
+            <!-- Links diretos -->
+            <li class="nav-item me-4"><a class="nav-link" href="#">Eletrônicos</a></li>
+            <li class="nav-item me-4"><a class="nav-link" href="#">Fashion</a></li>
+            <li class="nav-item me-4"><a class="nav-link" href="#">Bolsas</a></li>
+            <li class="nav-item me-4"><a class="nav-link" href="#">Beleza</a></li>
+            <li class="nav-item me-4"><a class="nav-link" href="#">Mantimentos</a></li>
+            <li class="nav-item me-4"><a class="nav-link" href="#">Chapéus</a></li>
+            <li class="nav-item me-4"><a class="nav-link" href="#">Bem-estar</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="container my-3">
+</div>
