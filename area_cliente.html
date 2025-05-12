@@ -16,38 +16,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- LOADER -->
+<div id="loader" class="loader-overlay">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+    </div>
+</div>
+<!-- FIM LOADER -->
+
 <!-- HEADER -->
 <section id="header-placeholder"></section>
 <!-- FIM HEADER -->
 
+<main>
 
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 text-center">
-                <h1 class="display-4 text-primary mb-4">Página em Construção</h1>
-                <p class="lead mb-4">
-                    Estamos trabalhando para melhorar a experiência do nosso site! Em breve, você verá um design
-                    totalmente novo e melhorado.
-                    Agradecemos pela sua paciência.
-                </p>
-                <div class="mb-4">
-                    <img src="img/magnoliascript-logo.png" alt="MagnoliaScript" class="img-fluid"
-                        style="max-width: 200px;">
-                </div>
-                <p class="small text-muted mb-4">
-                    Enquanto isso, siga-nos nas redes sociais para mais atualizações.
-                </p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#" class="btn btn-primary btn-lg">Voltar à Página Inicial</a>
-                    <a href="#" class="btn btn-outline-secondary btn-lg">Entre em Contato</a>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                    <h1 class="display-4 text-primary mb-4">Página em Construção</h1>
+                    <p class="lead mb-4">
+                        Estamos trabalhando para melhorar a experiência do nosso site! Em breve, você verá um design
+                        totalmente novo e melhorado.
+                        Agradecemos pela sua paciência.
+                    </p>
+                    <div class="mb-4">
+                        <a href="https://magnoliascript.com.br" target="_blank">
+                            <img src="img/magnoliascript.png" alt="MagnoliaScript Logo" style="max-height: 200px;">
+                        </a>
+                    </div>
+                    <p class="small text-muted mb-4">
+                        Enquanto isso, entre em contato no WhatsApp para saber mais sobre nossos serviços!
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="index.html" class="btn btn-primary btn-lg">Voltar à Página Inicial</a>
+                        <a href="https://api.whatsapp.com/send?phone=5511980591011&text=Olá,%20vim%20pelo%20site%20e%20tenho%20interesse%20em%20seus%20produtos
+" class="btn btn-outline-secondary btn-lg" target="_blank">Entre em Contato</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
+</main>
 
 <!-- FOOTER -->
 <section id="footer-placeholder"></section>
@@ -65,15 +76,17 @@
 <script src="js/script.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script>
-    function loadHTML(elementId, filePath) {
-        fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(elementId).innerHTML = data;
-            })
-            .catch(error => console.error("Erro ao carregar o arquivo HTML:", error));
-    }
+    $(document).ready(function () {
+        $('#header-placeholder').load('header.html', function (response, status, xhr) {
+            if (status === "error") {
+                console.error("Erro ao carregar header:", xhr.status, xhr.statusText);
+            }
+        });
 
-    loadHTML('header-placeholder', 'header.html');
-    loadHTML('footer-placeholder', 'footer.html');
+        $('#footer-placeholder').load('footer.html', function (response, status, xhr) {
+            if (status === "error") {
+                console.error("Erro ao carregar footer:", xhr.status, xhr.statusText);
+            }
+        });
+    });
 </script>

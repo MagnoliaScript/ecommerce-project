@@ -1,14 +1,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-
-<!-- LOADER -->
-<div id="loader" class="loader-overlay">
-  <div class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Carregando...</span>
-  </div>
-</div>
-<!-- FIM LOADER -->
 
 <!-- MODAL NEWSLETTER -->
 <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel" aria-hidden="true">
@@ -41,7 +34,7 @@
     <div class="cart-items text-center">
       <p>Seu carrinho está vazio</p>
       <p>Explore mais produtos e adicione ao carrinho!</p>
-      <a href="#" class="btn btn-outline-primary">Ver Produtos</a>
+      <a href="index.html" class="btn btn-outline-primary">Ver Produtos</a>
     </div>
   </div>
   <div class="offcanvas-footer bg-light p-3">
@@ -66,9 +59,9 @@
   </div>
 </div>
 
-<!-- SIDEBAR MOBILE ESTILO MISTO -->
+<!-- SIDEBAR MOBILE -->
 <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-  <!-- TOPO -->
+  <!-- HEADER -->
   <div class="offcanvas-header text-white py-3" style="background-color: var(--primary-color);">
     <div class="d-flex flex-column w-100">
       <div class="d-flex justify-content-between align-items-center">
@@ -98,11 +91,11 @@
     </div>
   </div>
 
-  <!-- CORPO -->
+  <!-- BODY -->
   <div class="offcanvas-body p-0">
     <div class="px-3 pt-3 fw-bold text-primary">Departamentos</div>
     <ul class="list-group list-group-flush px-3">
-      <!-- Categorias com seta (estilo da primeira imagem) -->
+      <!-- Categorias -->
       <li class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center py-2">
         Celulares e Smartphones <i class="bi bi-chevron-down"></i>
       </li>
@@ -156,12 +149,12 @@
   </div>
 </div>
 
-
+<!-- HEADER -->
 <!-- Faixa Gif -->
 <header class="headerWrapperFixed">
   <div class="faixa-header-gif position-relative">
     <div class="container-custom w-100">
-      <img src="img/header_gif.gif" alt="Frete Grátis" class="img-fluid w-100">
+      <img src="img/header_gif.gif" alt="Frete Grátis" class="img-fluid w-100" loading="lazy">
     </div>
   </div>
 
@@ -191,7 +184,7 @@
 
           <!-- Logo -->
           <a href="index.html" class="mx-auto">
-            <img src="img/logo.png" alt="Logo" style="height: 50px;">
+            <img src="img/logo.png" alt="Logo" style="height: 50px;" loading="lazy">
           </a>
 
           <!-- Carrinho -->
@@ -233,7 +226,7 @@
 
         <!-- Logo -->
         <a href="index.html" class="mx-auto">
-          <img src="img/logo.png" alt="Logo" style="height: 50px;">
+          <img src="img/logo.png" alt="Logo" style="height: 50px;" loading="lazy">
         </a>
 
         <!-- Carrinho -->
@@ -271,7 +264,7 @@
         <!-- Logo -->
         <div class="col-md-3">
           <a href="index.html">
-            <img src="img/logo.png" alt="LOGO" class="img-fluid logo">
+            <img src="img/logo.png" alt="LOGO" class="img-fluid logo" loading="lazy">
           </a>
         </div>
 
@@ -313,7 +306,7 @@
           <a href="#" class="text-center position-relative text-decoration-none" data-bs-toggle="offcanvas"
             data-bs-target="#cartSidebar">
             <i class="bi bi-cart2" style="font-size: 1.5rem;"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">
               0
             </span>
             <br><small>Carrinho</small>
@@ -344,7 +337,7 @@
       <!-- Logo -->
       <div class="col-md-3">
         <a href="index.html">
-          <img src="img/logo.png" alt="LOGO" class="img-fluid logo">
+          <img src="img/logo.png" alt="LOGO" class="img-fluid logo" loading="lazy">
         </a>
       </div>
 
@@ -386,7 +379,7 @@
         <a href="#" class="text-center position-relative text-decoration-none" data-bs-toggle="offcanvas"
           data-bs-target="#cartSidebar">
           <i class="bi bi-cart2" style="font-size: 1.5rem;"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">
             0
           </span>
           <br><small>Carrinho</small>
@@ -447,6 +440,4 @@
     </nav>
   </div>
 </header>
-
-<div class="container my-3">
-</div>
+<!-- FIM HEADER -->

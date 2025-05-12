@@ -16,6 +16,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- LOADER -->
+<div id="loader" class="loader-overlay">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+    </div>
+</div>
+<!-- FIM LOADER -->
+
 <!-- HEADER -->
 <section id="header-placeholder"></section>
 <!-- FIM HEADER -->
@@ -49,58 +57,60 @@
 </div>
 <!-- FIM MODAL ESQUECI MINHA SENHA -->
 
-<!-- FORM LOGIN -->
-<!-- FORM LOGIN -->
-<section class="py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 mb-3 mb-md-0"> <!-- Espaçamento no mobile -->
-                <h2 class="text-center mb-4">ENTRAR NA CONTA</h2>
-                <div class="mb-3 d-flex gap-2">
-                    <button class="btn btn-outline-danger w-50 py-3"><i class="bi bi-google me-2"></i>Entrar com o
-                        Google</button>
-                    <button class="btn btn-outline-secondary w-50 py-3"><i class="bi bi-apple me-2"></i>Entrar com a
-                        Apple</button>
-                </div>
-                <div class="mb-3 text-center">OU</div>
-                <div class="row g-3">
-                    <div class="col-md-12">
-                        <label for="email" class="form-label">E-mail*</label>
-                        <input type="email" class="form-control py-3" id="email" required>
+<main>
+    <!-- FORM LOGIN -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 mb-3 mb-md-0"> <!-- Espaçamento no mobile -->
+                    <h2 class="text-center mb-4">ENTRAR NA CONTA</h2>
+                    <div class="mb-3 d-flex gap-2">
+                        <button class="btn btn-outline-danger w-50 py-3"><i class="bi bi-google me-2"></i>Entrar com o
+                            Google</button>
+                        <button class="btn btn-outline-secondary w-50 py-3"><i class="bi bi-apple me-2"></i>Entrar com a
+                            Apple</button>
                     </div>
-                    <div class="col-md-12">
-                        <label for="senha" class="form-label">Senha*</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control py-3" id="senha" required>
-                            <button class="btn btn-outline-secondary" type="button"><i class="bi bi-eye"></i></button>
+                    <div class="mb-3 text-center">OU</div>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="email" class="form-label">E-mail*</label>
+                            <input type="email" class="form-control py-3" id="email" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="senha" class="form-label">Senha*</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control py-3" id="senha" required>
+                                <button class="btn btn-outline-secondary" type="button"><i
+                                        class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="lembrar">
+                                <label class="form-check-label" for="lembrar">Lembrar-me</label>
+                            </div>
+                            <a href="#" class="text-decoration-none" data-bs-toggle="modal"
+                                data-bs-target="#modalEsqueciSenha">Esqueci minha senha</a>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-primary w-100 btn-lg">ENTRAR</button>
                         </div>
                     </div>
-                    <div class="col-12 d-flex justify-content-between align-items-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="lembrar">
-                            <label class="form-check-label" for="lembrar">Lembrar-me</label>
-                        </div>
-                        <a href="#" class="text-decoration-none" data-bs-toggle="modal"
-                            data-bs-target="#modalEsqueciSenha">Esqueci minha senha</a>
-                    </div>
-                    <div class="col-12 mt-4">
-                        <button type="submit" class="btn btn-primary w-100 btn-lg">ENTRAR</button>
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 mt-5 mt-md-0"> <!-- Espaçamento no mobile -->
-                <h2 class="text-center mb-4">NÃO TENHO CONTA</h2>
-                <div class="form-text text-center">
-                    Criar uma conta é fácil! Informe seus dados e uma senha para aproveitar todos os
-                    beneficios de ter uma conta.
+                <div class="col-md-6 mt-5 mt-md-0"> <!-- Espaçamento no mobile -->
+                    <h2 class="text-center mb-4">NÃO TENHO CONTA</h2>
+                    <div class="form-text text-center">
+                        Criar uma conta é fácil! Informe seus dados e uma senha para aproveitar todos os
+                        beneficios de ter uma conta.
+                    </div>
+                    <br>
+                    <a href="cadastro.html" class="btn btn-outline-secondary w-100 py-3">Cadastre-se</a>
                 </div>
-                <br>
-                <a href="cadastro.html" class="btn btn-outline-secondary w-100 py-3">Cadastre-se</a>
             </div>
         </div>
-    </div>
-</section>
-<!-- FIM FORM LOGIN -->
+    </section>
+    <!-- FIM FORM LOGIN -->
+</main>
 
 </html>
 
@@ -118,15 +128,17 @@
 <script src="js/script.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script>
-    function loadHTML(elementId, filePath) {
-        fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(elementId).innerHTML = data;
-            })
-            .catch(error => console.error("Erro ao carregar o arquivo HTML:", error));
-    }
+    $(document).ready(function () {
+        $('#header-placeholder').load('header.html', function (response, status, xhr) {
+            if (status === "error") {
+                console.error("Erro ao carregar header:", xhr.status, xhr.statusText);
+            }
+        });
 
-    loadHTML('header-placeholder', 'header.html');
-    loadHTML('footer-placeholder', 'footer.html');
+        $('#footer-placeholder').load('footer.html', function (response, status, xhr) {
+            if (status === "error") {
+                console.error("Erro ao carregar footer:", xhr.status, xhr.statusText);
+            }
+        });
+    });
 </script>
