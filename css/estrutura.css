@@ -43,6 +43,11 @@ footer {
     z-index: 9999;
 }
 
+.loader-overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .spinner-border {
     width: 3rem;
     height: 3rem;

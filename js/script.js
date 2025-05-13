@@ -64,17 +64,27 @@ $(function () {
   const $loader = $('#loader');
 
   function removeLoader() {
-    $loader.remove();
+    $loader.addClass('hide');
+    setTimeout(function () {
+      $loader.remove();
+    }, 500);
   }
 
-  $(window).on('load', removeLoader);
+  $(document).on('click', 'a', function () {
+    $loader.removeClass('hide');
+    $('body').addClass('loading');
+  });
+
+  $(window).on('load', function () {
+    removeLoader();
+  });
 
   setTimeout(function () {
     if ($loader.length) {
       console.warn('Removendo loader por timeout');
       removeLoader();
     }
-  }, 5000);
+  }, 10000);
 });
 //FIM LOADER
 
