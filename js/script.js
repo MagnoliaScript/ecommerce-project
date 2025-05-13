@@ -63,26 +63,24 @@ $(document).ready(function () {
 $(function () {
   const $loader = $('#loader');
 
-  function removeLoader() {
-    $loader.addClass('hide');
-    setTimeout(function () {
-      $loader.remove();
-    }, 500);
-  }
-
-  $(document).on('click', 'a', function () {
-    $loader.removeClass('hide');
-    $('body').addClass('loading');
-  });
-
   $(window).on('load', function () {
-    removeLoader();
+    $loader.removeClass('hide');
+
+    setTimeout(function () {
+      $loader.addClass('hide');
+      setTimeout(function () {
+        $loader.remove();
+      }, 500);
+    }, 500);
   });
 
   setTimeout(function () {
     if ($loader.length) {
       console.warn('Removendo loader por timeout');
-      removeLoader();
+      $loader.addClass('hide');
+      setTimeout(function () {
+        $loader.remove();
+      }, 500);
     }
   }, 10000);
 });
