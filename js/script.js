@@ -59,7 +59,7 @@ $(document).ready(function () {
 
 
 
-// LOADER
+/* LOADER
 $(document).ready(function () {
   $('body').addClass('loading');
 
@@ -75,7 +75,8 @@ $(document).ready(function () {
     }
   }, 5000);
 });
-// FIM LOADER
+FIM LOADER
+*/
 
 
 
