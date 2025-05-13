@@ -143,29 +143,24 @@
     });
 </script>
 <script>
-    //loader
+    // loader
     $(function () {
         const $loader = $('#loader');
 
-        $(window).on('load', function () {
-            $loader.removeClass('hide');
-
+        const loaderTimeout = setTimeout(function () {
+            console.warn('Removendo loader por timeout');
+            $loader.addClass('hide');
             setTimeout(function () {
-                $loader.addClass('hide');
-                setTimeout(function () {
-                    $loader.remove();
-                }, 0);
+                $loader.remove();
+            }, 0);
+        }, 10000);
+
+        $(window).on('load', function () {
+            clearTimeout(loaderTimeout);
+            $loader.addClass('hide');
+            setTimeout(function () {
+                $loader.remove();
             }, 500);
         });
-
-        setTimeout(function () {
-            if ($loader.length) {
-                console.warn('Removendo loader por timeout');
-                $loader.addClass('hide');
-                setTimeout(function () {
-                    $loader.remove();
-                }, 0);
-            }
-        }, 10000);
     });
 </script>
