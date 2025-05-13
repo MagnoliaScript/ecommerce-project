@@ -522,6 +522,33 @@
       });
     });
   </script>
+  <script>
+    //loader
+    $(function () {
+      const $loader = $('#loader');
+
+      $(window).on('load', function () {
+        $loader.removeClass('hide');
+
+        setTimeout(function () {
+          $loader.addClass('hide');
+          setTimeout(function () {
+            $loader.remove();
+          }, 0);
+        }, 500);
+      });
+
+      setTimeout(function () {
+        if ($loader.length) {
+          console.warn('Removendo loader por timeout');
+          $loader.addClass('hide');
+          setTimeout(function () {
+            $loader.remove();
+          }, 0);
+        }
+      }, 10000);
+    });
+  </script>
 </body>
 
 </html>

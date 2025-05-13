@@ -58,38 +58,6 @@ $(document).ready(function () {
 // FIM HEADER FLUTUANTE
 
 
-
-// LOADER
-$(function () {
-  const $loader = $('#loader');
-
-  $(window).on('load', function () {
-    $loader.removeClass('hide');
-
-    setTimeout(function () {
-      $loader.addClass('hide');
-      setTimeout(function () {
-        $loader.remove();
-      }, 500);
-    }, 500);
-  });
-
-  setTimeout(function () {
-    if ($loader.length) {
-      console.warn('Removendo loader por timeout');
-      $loader.addClass('hide');
-      setTimeout(function () {
-        $loader.remove();
-      }, 500);
-    }
-  }, 10000);
-});
-//FIM LOADER
-
-
-
-
-
 // COOKIES
 $(document).ready(function () {
   // Verifica se o banner já foi aceito nesta sessão
