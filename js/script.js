@@ -60,18 +60,19 @@ $(document).ready(function () {
 
 
 // LOADER
-$(document).ready(function () {
-  $('body').addClass('loading');
+$(function () {
+  const $loader = $('#loader');
 
-  $(window).on('load', function () {
-    $('#loader').remove();
-    $('body').removeClass('loading');
-  });
+  function removeLoader() {
+    $loader.remove();
+  }
+
+  $(window).on('load', removeLoader);
 
   setTimeout(function () {
-    if ($('#loader').length) {
-      $('#loader').remove();
-      $('body').removeClass('loading');
+    if ($loader.length) {
+      console.warn('Removendo loader por timeout');
+      removeLoader();
     }
   }, 5000);
 });
