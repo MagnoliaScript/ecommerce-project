@@ -1,5 +1,15 @@
 // -=- BASE -=-
 
+// MODAL INICIAL
+$(window).on('load', function () {
+  setTimeout(function () {
+    const modalEl = $('#promoModal')[0];
+    const promoModal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+    promoModal.show();
+  }, 2000);
+});
+// FIM MODAL INICIAL
+
 // BREADCRUMB
 $(document).ready(function () {
   const pathArray = window.location.pathname.split("/").filter(Boolean);
@@ -60,30 +70,29 @@ $(document).ready(function () {
 
 
 // LOADER
-(() => {
-  const loader = document.getElementById("loader");
+$(function () {
+  const $loader = $('#loader');
 
   function hideLoader() {
-    if (!loader.classList.contains("hidden")) {
-      loader.classList.add("hidden");
+    if (!$loader.hasClass('hidden')) {
+      $loader.addClass('hidden');
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("is-loading");
+  $(document).on('DOMContentLoaded', function () {
+    $('body').addClass('is-loading');
   });
 
-  window.addEventListener("load", () => {
-    document.body.classList.remove("is-loading");
+  $(window).on('load', function () {
+    $('body').removeClass('is-loading');
     hideLoader();
   });
 
-  // Fallback de emergencia caso demore muito 
-  setTimeout(() => {
+  setTimeout(function () {
     hideLoader();
-    document.body.classList.remove("is-loading");
+    $('body').removeClass('is-loading');
   }, 8000);
-})();
+});
 //FIM LOADER
 
 
@@ -120,23 +129,20 @@ $(document).ready(function () {
   $('.categories-carousel').owlCarousel({
     loop: true,
     margin: 10,
-    nav: true,
-    dots: true,
+    nav: false,
+    dots: false,
     autoplay: true,
     autoplayTimeout: 4000,
     responsiveClass: true,
     responsive: {
       0: {
         items: 3,
-        nav: true
       },
       600: {
         items: 5,
-        nav: true
       },
       1000: {
         items: 7,
-        nav: true,
         loop: true
       }
     }
@@ -150,28 +156,56 @@ $(document).ready(function () {
   $('.products-carousel').owlCarousel({
     loop: true,
     margin: 10,
-    nav: true,
     autoplay: true,
     autoplayTimeout: 4000,
+    nav: true,
     dots: true,
     responsive: {
       0: {
-        items: 1,
-        stagePadding: 70
+        items: 1.8,
+        dots: true,
+
       },
       600: {
-        items: 1,
-        stagePadding: 80
+        items: 2,
+        dots: true
+
       },
       1000: {
         items: 5,
-        stagePadding: 0
       }
     }
   });
 });
 
 // FIM CARROSSEL PRODUTOS
+
+// CARROSSEL VITRINE DE PROMOÇÕES
+$(document).ready(function () {
+  $(".vitrine-promocoes").owlCarousel({
+    loop: false,
+    margin: 10,
+    nav: false,
+    dots: false,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    responsive: {
+      0: {
+        items: 1.2,
+        dots: true,
+        loop: true
+
+      },
+      600: {
+        items: 3.2
+      },
+      1200: {
+        items: 4
+      }
+    }
+  });
+});
+// FIM CARROSSEL VITRINE DE PROMOÇÕES
 
 
 
@@ -185,8 +219,8 @@ $(document).ready(function () {
     stagePadding: 280,
     autoplay: true,
     autoplayTimeout: 4000,
-    nav: true,
-    dots: true,
+    nav: false,
+    dots: false,
 
     responsive: {
       1200: {
@@ -219,14 +253,16 @@ $(document).ready(function () {
     margin: 20,
     autoplay: true,
     autoplayTimeout: 4000,
-    nav: true,
-    dots: true,
+    nav: false,
+    dots: false,
     responsive: {
       0: {
-        items: 2
+        items: 1.2,
+        dots: true
       },
       576: {
-        items: 2
+        items: 2.2,
+        dots: true
       },
       992: {
         items: 3
@@ -243,8 +279,8 @@ $(document).ready(function () {
   $('.testimonials-carousel').owlCarousel({
     loop: true,
     margin: 20,
-    nav: true,
-    dots: true,
+    nav: false,
+    dots: false,
     autoplay: true,
     autoplayTimeout: 4000,
     responsive: {
@@ -261,8 +297,8 @@ $(document).ready(function () {
   $('.banner-index-carousel').owlCarousel({
     loop: false,
     margin: 10,
-    nav: true,
-    dots: true,
+    nav: false,
+    dots: false,
     autoplay: true,
     autoplayTimeout: 4000,
     responsive: {
