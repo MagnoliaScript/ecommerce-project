@@ -1,40 +1,27 @@
 
 <?php
 
-/* Definindo elementos para a conexão
-    define('host', 'localhost');
-    define('user', 'u205594501_admin');
-    define("password", '36R2e7yHPyl3');
-    define ("database", 'u205594501_ecommerce');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'u205594501_admin');
+define('DB_PASSWORD', '36R2e7yHPyl3');
+define('DB_NAME', 'u205594501_ecommerce');
 
-$conn = new MySQLi(host,user,password,database);
-    
-if($conn->error) {
-    die("Falha ao conectar ao banco" . $conn->error);
-} */
-
-class Database {
-    private $host = 'localhost';
-    private $database = 'u205594501_admin';
-    private $user = 'u205594501_admin';
-    private $password = '36R2e7yHPyl3';
-
-    private $conn;
-
-    public function connect() {
+class Conexao {
+    public static function conectar() {
         try {
-            $this->conn = new PDO("mysql:host=$this->host;database=$this->database, user=$this->user, password=$this->password");
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
+            $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
             
-            return $this->conn;
-        } catch (PDOException $error){
+            // Configura o PDO para lançar exceções em caso de erro
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            return null;
+            return $pdo;
+
+        } catch (PDOException $e) {
+            die('Erro na conexão: ' . $e->getMessage());
         }
     }
-
 }
 
-?>
 
 
