@@ -317,6 +317,25 @@ $(document).ready(function () {
 // -=- TELA DE PRODUTO -=-
 
 // CARROSSEL IMAGENS E MINI IMAGENS DA TELA DE PRODUTOS
+
+//CARROSSEL DE RELACIONADOS
+$(document).ready(function(){
+  $(".produtos-relacionados-carousel").owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: true,
+    navText: ['<i class="bi bi-chevron-left fs-3"></i>', '<i class="bi bi-chevron-right fs-3"></i>'],
+    dots: false,
+    responsive:{
+      0:{ items:1 },
+      576:{ items:2 },
+      768:{ items:3 },
+      992:{ items:4 }
+    }
+  });
+});
+
+
 $(document).ready(function () {
   var productCarousel = $('.product-image-carousel');
   var thumbnailCarousel = $('.product-thumbnails');

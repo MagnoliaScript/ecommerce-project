@@ -17,9 +17,9 @@
 <html lang="pt-br">
 
   <!-- LOADER -->
-  <div id="loader" class="loader" role="status" aria-label="Carregando conteúdo">
+  <!-- <div id="loader" class="loader" role="status" aria-label="Carregando conteúdo">
     <div class="spinner" aria-hidden="true"></div>
-  </div>
+  </div> -->
   <!-- FIM LOADER -->
 
 <!-- HEADER -->
@@ -137,28 +137,6 @@
             if (status === "error") {
                 console.error("Erro ao carregar footer:", xhr.status, xhr.statusText);
             }
-        });
-    });
-</script>
-<script>
-    // loader
-    $(function () {
-        const $loader = $('#loader');
-
-        const loaderTimeout = setTimeout(function () {
-            console.warn('Removendo loader por timeout');
-            $loader.addClass('hide');
-            setTimeout(function () {
-                $loader.remove();
-            }, 0);
-        }, 10000);
-
-        $(window).on('load', function () {
-            clearTimeout(loaderTimeout);
-            $loader.addClass('hide');
-            setTimeout(function () {
-                $loader.remove();
-            }, 500);
         });
     });
 </script>

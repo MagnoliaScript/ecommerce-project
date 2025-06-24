@@ -494,6 +494,18 @@ body.loading {
     position: absolute;
     right: 0;
     top: 0;
+    z-index: 100;
+}
+
+.imagens-produto {
+    position: sticky;
+    top: 10px;
+}
+
+@media (max-width: 768px) {
+    .imagens-produto {
+        position: static;
+    }
 }
 
 /* FIM TELA DE PRODUTO */

@@ -13,11 +13,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
-  <!-- LOADER -->
-  <div id="loader" class="loader" role="status" aria-label="Carregando conteúdo">
+<!-- LOADER -->
+<!-- <div id="loader" class="loader" role="status" aria-label="Carregando conteúdo">
     <div class="spinner" aria-hidden="true"></div>
-  </div>
-  <!-- FIM LOADER -->
+  </div> -->
+<!-- FIM LOADER -->
 
 <!-- HEADER -->
 <section id="header-placeholder"></section>
@@ -49,13 +49,16 @@
 
 <main>
     <!-- IMAGENS E DETALHES DO PRODUTO -->
-    <section class="mt-2">
+    <section class="my-2">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-start">
                 <!-- IMAGENS DO PRODUTO -->
-                <div class="col-md-6">
+                <div class="col-md-6 imagens-produto">
                     <div class="sticky-gallery ">
-                        <div class="btn-favorito"><i class="bi bi-heart"></i></div>
+                        <button type="button"
+                            class="btn btn-favorito btn-outline-danger rounded-circle p-2 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-heart"></i>
+                        </button>
                         <div class="product-image-carousel owl-carousel owl-theme">
                             <div class="item"><img src="img/macbook-product-example.png" alt="Imagem do Produto 1">
                             </div>
@@ -94,15 +97,527 @@
 
                 <!-- DETALHES DO PRODUTO -->
                 <div class="col-md-6 product-details">
-                    <h2>Nome do Produto</h2>
+                    <h2 class="fw-bold">Nome do Produto</h2>
+
+                    <!-- Marca e Avaliação -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>Outros produtos <a href="#">Samsung</a><br></span>
+                        <div>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-half text-warning"></i>
+                            <i class="bi bi-star text-warning"></i>
+                            <span class="text-muted">(0)</span>
+                        </div>
+                    </div>
+
+                    <small class="text-secondary d-block mb-3">Cód. item: 1234</small>
+
+                    <img src="https://carrefourbr.vtexassets.com/arquivos/garantia-estendida-promocao.gif"
+                        alt="Garantia Estendida">
+
+                    <!-- Preço -->
+                    <div class="preco my-4">
+                        <span class="text-decoration-line-through text-muted">R$ 6.465,23</span>
+                        <h2 class="fw-bold">R$ 6.349,97</h2>
+                        <p class="mb-0 text-secondary">À vista no <strong>Pix</strong> com 10% de desconto</p>
+                        <p class="mb-3 text-secondary">Em até 10x de <strong>R$ 542,62</strong> sem juros no cartão</p>
+                        <a href="#" class="text-decoration-underline">Ver mais opções de pagamento <i
+                                class="bi bi-chevron-right"></i></a>
+                    </div>
+
+                    <!-- Variações -->
+                    <div class="variacoes align-items-center gap-2 my-4">
+                        <label for="variacao" class="fw-semibold mb-0">Selecione:</label>
+                        <select id="variacao" class="form-select w-100">
+                            <option value="128gb" selected>128 GB</option>
+                            <option value="256gb">256 GB (+R$ 2.000)</option>
+                            <option value="512gb">512 GB (+R$ 5.000)</option>
+                        </select>
+                    </div>
+
+                    <!-- Comprar e Quantidade -->
+                    <div class="d-flex flex-wrap align-items-center gap-3 my-4">
+                        <div class="d-flex border rounded overflow-hidden" style="height: 48px;">
+                            <button class="btn border-0 px-3" type="button" title="Diminuir">
+                                <i class="bi bi-dash"></i>
+                            </button>
+                            <input class="form-control text-center border-0" value="1" min="1" style="width: 60px;">
+                            <button class="btn border-0 px-3" type="button" title="Aumentar">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                        </div>
+
+                        <!-- Botão Comprar -->
+                        <button type="submit" class="btn btn-primary btn-lg px-4 flex-grow-1">
+                            Comprar
+                        </button>
+                    </div>
+
+
+                    <!-- Frete -->
+                    <div class="my-5 p-4 bg-light rounded">
+                        <div class="mb-2 d-flex align-items-center gap-2 fw-semibold">
+                            <i class="bi bi-truck text-primary"></i>
+                            <span class="text-dark">Meios de envio:</span>
+                        </div>
+
+                        <small class="text-muted">Calcule seu frete</small>
+
+                        <!-- Campo de CEP separado do botão -->
+                        <div class="mt-3 d-flex flex-column flex-sm-row gap-2">
+                            <input type="text" class="form-control" placeholder="Insira seu CEP">
+                            <button class="btn btn-primary" type="button"> Calcular
+                            </button>
+                        </div>
+
+                        <div class="mt-2">
+                            <a href="#" class="text-decoration-none small">
+                                Não sei meu CEP <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!-- Nossa Loja -->
+                    <div class="my-5 p-4 bg-light rounded">
+                        <!-- Título com ícone -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2 fw-semibold">
+                                <i class="bi bi-house text-primary"></i>
+                                <span class="text-dark">Nossa loja</span>
+                            </div>
+                        </div>
+
+                        <!-- Endereço e frete com alinhamento correto -->
+                        <div class="bg-white rounded p-3">
+                            <div class="row">
+                                <div class="col-md-10 col-12">
+                                    <span class="text-muted">
+                                        Retire na loja - Frete Grátis - Rua Fulano - Ciclano,
+                                        São Paulo - SP - CEP 00000-000.
+                                    </span>
+                                </div>
+                                <div class="col-md-2 col-12 text-md-end mt-2 mt-md-0">
+                                    <span class="text-danger fw-semibold">Grátis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Carousel Produtos Relacionados -->
+                    <div class="my-5 p-4 bg-light rounded">
+                        <div class="d-flex align-items-center gap-2 fw-semibold pb-2">
+                            <i class="bi bi-tag text-primary"></i>
+                            <span class="text-dark">Produtos relacionados</span>
+                        </div>
+                        <div class="owl-carousel owl-theme produtos-relacionados-carousel">
+                            <!-- Produto 1 -->
+                            <div class="p-3 text-center bg-white rounded">
+                                <img src="img/macbook-product-example.png" alt="Produto 1" class="mb-3 mx-auto d-block"
+                                    style="max-width: 150px;">
+                                <h6>R$ 6.349,97</h6>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="my-5 mb-0 p-4 bg-light rounded">
+                        <span class="fw-semibold">
+                            <i class="bi bi-share me-2 text-primary"></i><span>Compartilhar:</span>
+                        </span>
+                        <div class="d-flex align-items-center gap-3 mt-2">
+                            <a href="#" class="text-decoration-none text-dark" title="Compartilhar no WhatsApp">
+                                <i class="bi bi-whatsapp fs-4"></i>
+                            </a>
+                            <a href="#" class="text-decoration-none text-dark" title="Compartilhar no Facebook">
+                                <i class="bi bi-facebook fs-4"></i>
+                            </a>
+                            <a href="#" class="text-decoration-none text-dark" title="Compartilhar no Twitter">
+                                <i class="bi bi-twitter-x fs-4"></i>
+                            </a>
+                            <a href="#" class="text-decoration-none text-dark" title="Copiar link">
+                                <i class="bi bi-link-45deg fs-4"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- FIM DETALHES DO PRODUTO -->
 
                 </div>
-                <!-- FIM DETALHES DO PRODUTO -->
 
+                <!-- FIM NAVBAR DESCRIÇÃO -->
+            </div>
+    </section>
+    <!-- FIM IMAGENS E DETALHES DO PRODUTO -->
+
+    <br>
+    <br>
+
+    <section class="my-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <button
+                        class="btn btn-link w-100 text-start p-0 text-decoration-none d-flex align-items-center justify-content-between"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#compreJuntoCollapse"
+                        aria-expanded="false" aria-controls="compreJuntoCollapse">
+                        <h4>Compre Junto</h4>
+                        <i class="bi bi-chevron-down fs-4"></i>
+                    </button>
+
+
+
+                    <!-- Conteúdo colapsável -->
+                    <div class="collapse show" id="avaliacoesCollapse">
+                        <div class="mt-2">
+
+                            IMPLEMENTAR COMPRE JUNTO
+
+                        </div>
+                    </div>
+
+    </section>
+
+    <br>
+
+    <!-- Seção: Descrição do Produto -->
+    <section class="my-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!-- Botão de toggle -->
+                    <button
+                        class="btn btn-link w-100 text-start p-0 text-decoration-none d-flex align-items-center justify-content-between"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#descricaoCollapse"
+                        aria-expanded="false" aria-controls="descricaoCollapse">
+                        <h4>Descrição do Produto</h4>
+                        <i class="bi bi-chevron-down fs-4"></i>
+                    </button>
+
+                    <!-- Conteúdo colapsável -->
+                    <div class="collapse show" id="descricaoCollapse">
+                        <div class="mt-2">
+                            <div class="descricao-produto">
+                                <p>
+                                    <strong>MacBook Air Apple 13", M1, CPU 8 Núcleos, GPU 7 Núcleos, Cinza Espacial -
+                                        MGN63BZ/A</strong>
+                                </p>
+
+                                <p>
+                                    <strong>MacBook Air com Chip M1: Potência e Leveza em Harmonia</strong><br>
+                                    Viva uma nova experiência de desempenho com o MacBook Air de 13 polegadas. Equipado
+                                    com o chip M1 da Apple, este notebook ultrafino entrega uma performance
+                                    impressionante com portabilidade e eficiência.
+                                </p>
+
+                                <p>
+                                    Sua CPU é até <strong>3,5x mais rápida</strong> e a GPU <strong>até 5x mais
+                                        potente</strong> do que modelos anteriores. Com o avançado <strong>Neural
+                                        Engine</strong>, o aprendizado de máquina é acelerado em até 9x, e tudo isso com
+                                    funcionamento silencioso, graças ao design sem ventoinha.
+                                </p>
+
+                                <p>
+                                    <strong>Desempenho Incrível em um Corpo Compacto</strong><br>
+                                    O chip M1 integra CPU, GPU e Neural Engine em um único SoC com <strong>16 bilhões de
+                                        transistores</strong>, oferecendo velocidade, inovação e eficiência energética
+                                    sem precedentes.
+                                </p>
+
+                                <p>
+                                    <strong>O Poder Revolucionário do Chip M1</strong><br>
+                                    A <strong>CPU de 8 núcleos</strong> lida com tarefas exigentes como edição de vídeo
+                                    e jogos com gráficos intensos de forma rápida e eficiente. Já os núcleos de alta
+                                    eficiência cuidam das tarefas diárias, prolongando a vida útil da bateria.
+                                </p>
+
+                                <p>
+                                    <strong>Produtividade Silenciosa</strong><br>
+                                    Realize edições, acesse seus apps favoritos, navegue na web e muito mais com alto
+                                    desempenho e <strong>sem ruído</strong>. O design sem ventoinha garante uma
+                                    experiência mais confortável para trabalhar, estudar ou se divertir.
+                                </p>
+
+                                <p>
+                                    <strong>Experimente o Futuro da Computação Portátil</strong><br>
+                                    Com desempenho extraordinário, design sofisticado e bateria duradoura, o MacBook Air
+                                    com chip M1 é a escolha ideal para quem busca potência e mobilidade em um só
+                                    dispositivo.
+                                </p>
+                            </div>
+                            <img src="https://www.kabum.com.br/conteudo/descricao/620992/img/bloco_01.gif"
+                                alt="Descrição do produto" class="img-fluid">
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
-    <!-- FIM IMAGENS E DETALHES DO PRODUTO -->
+
+    <br>
+
+    <!-- Seção: Informações Técnicas -->
+    <section class="my-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <button
+                        class="btn btn-link w-100 text-start p-0 text-decoration-none d-flex align-items-center justify-content-between"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#tecnicaCollapse" aria-expanded="false"
+                        aria-controls="tecnicaCollapse">
+                        <h4>Informações Técnicas</h4>
+                        <i class="bi bi-chevron-down fs-4"></i>
+                    </button>
+
+                    <div class="collapse show" id="tecnicaCollapse">
+                        <div class="mt-2">
+                            <p><strong>Marca:</strong> Apple</p>
+                            <p><strong>Modelo:</strong> MGN63BZ/A</p>
+
+                            <p><strong>Tela:</strong> Retina de 13,3" (2560 x 1600, 227 ppi), LED, IPS, 400 nits, ampla
+                                gama P3, True Tone.</p>
+
+                            <p><strong>Resoluções compatíveis:</strong> 1680x1050, 1440x900, 1024x640.</p>
+
+                            <p><strong>Chip:</strong> Apple M1, CPU 8 núcleos (4 desempenho, 4 eficiência), GPU 7
+                                núcleos, Neural Engine 16 núcleos.</p>
+
+                            <p><strong>Bateria:</strong> Até 15h navegação Wi-Fi, até 18h vídeo Apple TV, bateria 49,9
+                                Wh, adaptador USB-C 30W.</p>
+
+                            <p><strong>Portas:</strong> 2x Thunderbolt / USB 4 (recarga, DisplayPort, Thunderbolt 3 até
+                                40 Gb/s, USB 4 até 40 Gb/s, USB 3.1 Gen 2 até 10 Gb/s).</p>
+
+                            <p><strong>Memória:</strong> 8 GB unificada (configurável até 16 GB).</p>
+
+                            <p><strong>Armazenamento:</strong> SSD 256 GB (configurável até 2 TB).</p>
+
+                            <p><strong>Teclado e trackpad:</strong> Magic Keyboard retroiluminado, sensor de luz
+                                ambiente, trackpad Force Touch com suporte a gestos Multi-Touch.</p>
+
+                            <p><strong>Touch ID:</strong> Sensor integrado.</p>
+
+                            <p><strong>Conexões sem fio:</strong> Wi-Fi 6 (802.11ax), Bluetooth 5.0.</p>
+
+                            <p><strong>Câmera:</strong> FaceTime HD 720p.</p>
+
+                            <p><strong>Vídeo:</strong> Suporte até 6K a 60 Hz em monitor externo, saída DisplayPort via
+                                USB-C e adaptadores opcionais.</p>
+
+                            <p><strong>Áudio:</strong> Alto-falantes estéreo, Dolby Atmos, 3 microfones com filtragem
+                                direcional, entrada para fones 3,5 mm.</p>
+
+                            <p><strong>Requisitos operacionais:</strong> 100–240 VCA, 50–60 Hz, temperatura 10–35 ºC,
+                                armazenamento -25–45 ºC, umidade até 90%, altitude operacional até 3.000 m.</p>
+
+                            <p><strong>Tamanho:</strong> Espessura 0,41–1,61 cm, largura 30,41 cm, profundidade 21,24
+                                cm.</p>
+
+                            <p><strong>Acessibilidade:</strong> Controle por Voz, VoiceOver, Zoom, Contraste, Reduzir
+                                Movimento, Siri, Controle Assistivo, Legendas, Vocalização de Texto.</p>
+
+                            <p><strong>Sistema operacional:</strong> macOS Big Sur.</p>
+
+                            <p><strong>Apps incluídos:</strong> Fotos, iMovie, GarageBand, Pages, Numbers, Keynote,
+                                Siri, Safari, Mail, FaceTime, Mensagens, Mapas, Bolsa, Casa, Gravador, Notas,
+                                Calendário, Contatos, Lembretes, Photo Booth, Pré-Visualização, Livros, App Store, Time
+                                Machine, TV, Música, Podcasts, Buscar, QuickTime Player.</p>
+
+                            <p><strong>Conteúdo da embalagem:</strong> MacBook Air, adaptador USB-C 30W, cabo USB-C
+                                (2m).</p>
+
+                            <p><strong>Garantia:</strong> 1 ano (3 meses legal + 9 meses contratual).</p>
+
+                            <p><strong>Peso:</strong> 2400 g (bruto com embalagem).</p>
+
+                            <p><strong>Código Anatel:</strong> 140922001993</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <!-- Seção: Avaliações do Usuário -->
+    <section class="my-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <button
+                        class="btn btn-link w-100 text-start p-0 text-decoration-none d-flex align-items-center justify-content-between"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#avaliacoesCollapse"
+                        aria-expanded="false" aria-controls="avaliacoesCollapse">
+                        <h4>Avaliações do Usuário</h4>
+                        <i class="bi bi-chevron-down fs-4"></i>
+                    </button>
+
+                    <div class="collapse show" id="avaliacoesCollapse">
+                        <div class="mt-2">
+
+                            IMPLEMENTAR ALGUM TIPO DE AVALIAÇÃO
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <!-- Seção: Perguntas e Respostas -->
+    <section class="my-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <button
+                        class="btn btn-link w-100 text-start p-0 text-decoration-none d-flex align-items-center justify-content-between"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#perguntasCollapse"
+                        aria-expanded="false" aria-controls="perguntasCollapse">
+                        <h4>Perguntas e Respostas</h4>
+                        <i class="bi bi-chevron-down fs-4"></i>
+                    </button>
+
+                    <div class="collapse show" id="perguntasCollapse">
+                        <div class="mt-2">
+                            <p>Quer trocar experiências com outros clientes que já compraram ou têm interesse neste
+                                produto? Compartilhe sua opinião, tire dúvidas e participe do nosso Fórum de Clientes.
+                                Faça seu login para começar!
+                            </p>
+
+                            <hr>
+                            <span class="text-secondary">(15/10/2021)</span>
+                            <p><strong>P:</strong> O teclado é retroiluminado?<br>
+                                <strong style="padding-left: 15px;">R:</strong> Sim, o teclado possui retroiluminação em
+                                todos os modelos com chip
+                                M1.
+                            </p>
+
+                            <hr>
+
+                            <span class="text-secondary">(15/10/2021)</span>
+                            <p><strong>P:</strong> Ele roda softwares de edição como Photoshop?<br>
+                                <strong style="padding-left: 15px;">R:</strong> Sim! O chip M1 oferece excelente
+                                desempenho para aplicações como
+                                Photoshop, Final Cut, e outros programas profissionais.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <section class="my-5">
+        <!-- Carrossel de produtos vitrine -->
+        <div class="container py-2">
+            <!-- Titulo da Vitrine -->
+            <div class="row titulo-vitrine">
+                <div class="col-12 d-flex align-items-center justify-content-between">
+                    <span class="h4">Produtos Similares <p class="fw-normal text-secondary">confira produtos parecidos
+                            com este!
+                        </p>
+                    </span>
+                    <a class="nav-link btn-ver-todos" href="#">Ver Todos</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="owl-carousel products-carousel owl-theme w-100">
+
+                    <!-- PRODUTO -->
+                    <div class="col item product">
+                        <a href="produto.html" class="text-decoration-none">
+                            <div class="card product-card rounded-3 position-relative mb-1">
+
+                                <!-- Badge Desconto -->
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <span class="badge bg-danger text-white product-badge">5% OFF</span>
+                                </div>
+
+                                <!-- Imagem do produto -->
+                                <div class="product-image  p-4 d-flex align-items-center justify-content-center">
+                                    <img src="img/241373007_1119_090-CALCA-JEANS-SKINNY-CINTURA-ALTA.png"
+                                        class="produto-img" loading="lazy" alt="Imagem Produto">
+                                </div>
+
+                                <div class="card-body product-body px-3 pt-3 pb-3">
+
+                                    <!-- Nome -->
+                                    <h6 class="product-title mb-2">
+                                        Calça Jeans Skinny Cintura Alta Azul
+                                    </h6>
+
+                                    <!-- Avaliação -->
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="text-muted product-stars">
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                        <small class="text-muted ms-2">(0)</small>
+                                    </div>
+
+                                    <!-- Preço antigo e selo -->
+                                    <div class="d-flex align-items-center mb-1">
+                                        <small class="text-muted text-decoration-line-through me-2">R$ 99,99</small>
+                                        <span class="badge bg-success">Baixou 3%</span>
+                                    </div>
+
+                                    <!-- Preço parcelado -->
+                                    <p class="product-installment mb-1">R$ 99,99 ou em até 10x de R$ 99,99 sem juros ou
+                                    </p>
+
+                                    <!-- Preço à vista -->
+                                    <p class="product-price mb-1">R$ 99,99
+                                        <!-- Pix -->
+                                        <small class="mb-2" style="font-weight: 100;  color: var(--primary-color);">No
+                                            Pix</small>
+                                    </p>
+
+                                    <!-- Região -->
+                                    <span class="badge bg-success text-white">Sul e Sudeste</span>
+
+                                </div>
+                                <!-- Botões no hover -->
+                                <div
+                                    class="product-hover-buttons position-absolute bottom-0 start-0 w-100 p-3 d-flex justify-content-center align-items-center gap-3">
+                                    <button
+                                        class="btn btn-primary btn-sm d-flex align-items-center shadow w-100 justify-content-center d-flex gap-1">
+                                        <i class="bi bi-cart"></i> Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- FIM PRODUTO -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <!-- FOOTER -->
@@ -131,30 +646,7 @@
     loadHTML('header-placeholder', 'header.html');
     loadHTML('footer-placeholder', 'footer.html');
 </script>
+
 <script>
-    //loader
-    $(function () {
-        const $loader = $('#loader');
 
-        $(window).on('load', function () {
-            $loader.removeClass('hide');
-
-            setTimeout(function () {
-                $loader.addClass('hide');
-                setTimeout(function () {
-                    $loader.remove();
-                }, 0);
-            }, 500);
-        });
-
-        setTimeout(function () {
-            if ($loader.length) {
-                console.warn('Removendo loader por timeout');
-                $loader.addClass('hide');
-                setTimeout(function () {
-                    $loader.remove();
-                }, 0);
-            }
-        }, 10000);
-    });
 </script>
