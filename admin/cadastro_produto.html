@@ -129,116 +129,609 @@
         
         <!-- Content Area -->
         <main class="main-content">
-            <div class="content-card">
-                <div class="card-header-custom">
-                    <h5 class="card-title">Informações do Produto</h5>
+            <form id="formProduto">
+                <!-- Progress Bar -->
+                <div class="content-card mb-4">
+                    <div class="card-body-custom">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h6 class="mb-0 text-muted">Progresso do Cadastro</h6>
+                            <span class="badge bg-primary" id="progressBadge">0%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" id="progressBar"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body-custom">
-                    <form id="formProduto">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="produto_titulo" class="form-label">Título <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="produto_titulo" name="produto_titulo" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="produto_status" class="form-label">Status <span class="text-danger">*</span></label>
-                                <select name="produto_status" id="produto_status" class="form-select" required>
-                                    <option value="">Selecione...</option>
-                                    <option value="1">Ativo</option>
-                                    <option value="0">Inativo</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="row g-3 mt-2">
-                            <div class="col-md-6">
-                                <label for="produto_sku" class="form-label">SKU <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="produto_sku" name="produto_sku" required>
-                                <small class="form-text text-muted">Código único do produto</small>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="produto_estoque" class="form-label">Estoque <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="produto_estoque" name="produto_estoque" min="0" required>
-                            </div>
-                        </div>
-                        
-                        <div class="row g-3 mt-2">
-                            <div class="col-md-6">
-                                <label for="produto_desc_maior" class="form-label">Descrição Detalhada</label>
-                                <textarea class="form-control" id="produto_desc_maior" name="produto_desc_maior" rows="4"></textarea>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="produto_desc_menor" class="form-label">Descrição Resumida</label>
-                                <textarea class="form-control" id="produto_desc_menor" name="produto_desc_menor" rows="4"></textarea>
-                                <small class="form-text text-muted">Aparece em listagens e cards</small>
-                            </div>
-                        </div>
-                        
-                        <div class="row g-3 mt-2">
-                            <div class="col-md-6">
-                                <label for="produto_preco_de" class="form-label">Preço de (R$)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="produto_preco_de" name="produto_preco_de" step="0.01" min="0" placeholder="0.00">
+
+                <!-- Tabs Navigation -->
+                <div class="content-card">
+                    <div class="card-body-custom p-0">
+                        <ul class="nav nav-tabs nav-tabs-custom" id="productTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab">
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    Informações Básicas
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">
+                                    <i class="bi bi-file-text me-2"></i>
+                                    Descrição
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pricing-tab" data-bs-toggle="tab" data-bs-target="#pricing" type="button" role="tab">
+                                    <i class="bi bi-currency-dollar me-2"></i>
+                                    Preços & Estoque
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="media-tab" data-bs-toggle="tab" data-bs-target="#media" type="button" role="tab">
+                                    <i class="bi bi-images me-2"></i>
+                                    Imagens & Mídia
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="categorization-tab" data-bs-toggle="tab" data-bs-target="#categorization" type="button" role="tab">
+                                    <i class="bi bi-tags me-2"></i>
+                                    Categorização
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shipping" type="button" role="tab">
+                                    <i class="bi bi-truck me-2"></i>
+                                    Envio & Dimensões
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="seo-tab" data-bs-toggle="tab" data-bs-target="#seo" type="button" role="tab">
+                                    <i class="bi bi-search me-2"></i>
+                                    SEO
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tabs Content -->
+                        <div class="tab-content p-4" id="productTabsContent">
+                            <!-- Tab 1: Informações Básicas -->
+                            <div class="tab-pane fade show active" id="basic" role="tabpanel">
+                                <div class="section-header mb-4">
+                                    <h5 class="section-title">
+                                        <i class="bi bi-info-circle text-primary me-2"></i>
+                                        Informações Básicas do Produto
+                                    </h5>
+                                    <p class="text-muted mb-0">Preencha as informações principais do produto</p>
                                 </div>
-                                <small class="form-text text-muted">Preço original (opcional)</small>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="produto_preco_por" class="form-label">Preço por (R$) <span class="text-danger">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="produto_preco_por" name="produto_preco_por" step="0.01" min="0" placeholder="0.00" required>
+
+                                <div class="row g-4">
+                                    <div class="col-md-8">
+                                        <label for="produto_titulo" class="form-label">
+                                            Título do Produto <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control form-control-lg" id="produto_titulo" name="produto_titulo" placeholder="Ex: Smartphone XYZ 128GB" required>
+                                        <small class="form-text text-muted">Nome completo do produto que aparecerá nas páginas</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="produto_status" class="form-label">
+                                            Status <span class="text-danger">*</span>
+                                        </label>
+                                        <select name="produto_status" id="produto_status" class="form-select form-select-lg" required>
+                                            <option value="">Selecione...</option>
+                                            <option value="1">Ativo</option>
+                                            <option value="0">Inativo</option>
+                                            <option value="2">Rascunho</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <small class="form-text text-muted">Preço de venda atual</small>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-6">
+                                        <label for="produto_sku" class="form-label">
+                                            SKU (Código) <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text"><i class="bi bi-upc"></i></span>
+                                            <input type="text" class="form-control" id="produto_sku" name="produto_sku" placeholder="PROD-001" required>
+                                        </div>
+                                        <small class="form-text text-muted">Código único de identificação do produto</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_codigo_barras" class="form-label">
+                                            Código de Barras
+                                        </label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
+                                            <input type="text" class="form-control" id="produto_codigo_barras" name="produto_codigo_barras" placeholder="7891234567890">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-4">
+                                        <div class="form-check form-switch form-switch-lg mt-4">
+                                            <input class="form-check-input" type="checkbox" id="produto_destaque" name="produto_destaque">
+                                            <label class="form-check-label" for="produto_destaque">
+                                                <strong>Produto em Destaque</strong>
+                                                <br>
+                                                <small class="text-muted">Exibir na página inicial</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check form-switch form-switch-lg mt-4">
+                                            <input class="form-check-input" type="checkbox" id="produto_novo" name="produto_novo">
+                                            <label class="form-check-label" for="produto_novo">
+                                                <strong>Produto Novo</strong>
+                                                <br>
+                                                <small class="text-muted">Marcar como lançamento</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="produto_data_lancamento" class="form-label">Data de Lançamento</label>
+                                        <input type="date" class="form-control" id="produto_data_lancamento" name="produto_data_lancamento">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="row g-3 mt-2">
-                            <div class="col-md-6">
-                                <label for="produto_fabricante" class="form-label">Fabricante</label>
-                                <select name="produto_fabricante" id="produto_fabricante" class="form-select">
-                                    <option value="">Selecione...</option>
-                                    <option value="1">Fabricante A</option>
-                                    <option value="2">Fabricante B</option>
-                                    <option value="3">Fabricante C</option>
-                                </select>
+
+                            <!-- Tab 2: Descrição -->
+                            <div class="tab-pane fade" id="description" role="tabpanel">
+                                <div class="section-header mb-4">
+                                    <h5 class="section-title">
+                                        <i class="bi bi-file-text text-primary me-2"></i>
+                                        Descrições e Conteúdo
+                                    </h5>
+                                    <p class="text-muted mb-0">Descreva o produto de forma detalhada</p>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-12">
+                                        <label for="produto_desc_menor" class="form-label">
+                                            Descrição Resumida <span class="text-danger">*</span>
+                                        </label>
+                                        <textarea class="form-control" id="produto_desc_menor" name="produto_desc_menor" rows="3" placeholder="Breve descrição que aparece em listagens, cards e resultados de busca..." required></textarea>
+                                        <small class="form-text text-muted">Máximo 200 caracteres. Aparece em listagens e cards do produto</small>
+                                        <div class="text-end">
+                                            <span class="badge bg-secondary" id="charCountShort">0/200</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label for="produto_desc_maior" class="form-label">
+                                            Descrição Detalhada
+                                        </label>
+                                        <textarea class="form-control" id="produto_desc_maior" name="produto_desc_maior" rows="8" placeholder="Descrição completa do produto com todas as características, benefícios e informações relevantes..."></textarea>
+                                        <small class="form-text text-muted">Descrição completa que aparece na página do produto</small>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label for="produto_especificacoes" class="form-label">
+                                            Especificações Técnicas
+                                        </label>
+                                        <textarea class="form-control" id="produto_especificacoes" name="produto_especificacoes" rows="6" placeholder="Ex: Processador: Intel Core i7, Memória: 16GB RAM, Armazenamento: 512GB SSD..."></textarea>
+                                        <small class="form-text text-muted">Liste as especificações técnicas do produto (uma por linha ou formato de lista)</small>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-6">
+                                        <label for="produto_garantia" class="form-label">Garantia</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="produto_garantia" name="produto_garantia" min="0" placeholder="12">
+                                            <select class="form-select" id="produto_garantia_tipo" name="produto_garantia_tipo" style="max-width: 150px;">
+                                                <option value="meses">Meses</option>
+                                                <option value="anos">Anos</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_video" class="form-label">URL do Vídeo (YouTube/Vimeo)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-play-circle"></i></span>
+                                            <input type="url" class="form-control" id="produto_video" name="produto_video" placeholder="https://youtube.com/watch?v=...">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="produto_categoria" class="form-label">Categoria</label>
-                                <select name="produto_categoria" id="produto_categoria" class="form-select">
-                                    <option value="">Selecione...</option>
-                                    <option value="1">Categoria 1</option>
-                                    <option value="2">Categoria 2</option>
-                                    <option value="3">Categoria 3</option>
-                                </select>
+
+                            <!-- Tab 3: Preços & Estoque -->
+                            <div class="tab-pane fade" id="pricing" role="tabpanel">
+                                <div class="section-header mb-4">
+                                    <h5 class="section-title">
+                                        <i class="bi bi-currency-dollar text-primary me-2"></i>
+                                        Preços e Controle de Estoque
+                                    </h5>
+                                    <p class="text-muted mb-0">Configure os preços e disponibilidade do produto</p>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        <label for="produto_preco_por" class="form-label">
+                                            Preço de Venda <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text bg-primary text-white">R$</span>
+                                            <input type="number" class="form-control" id="produto_preco_por" name="produto_preco_por" step="0.01" min="0" placeholder="0.00" required>
+                                        </div>
+                                        <small class="form-text text-muted">Preço atual de venda</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="produto_preco_de" class="form-label">
+                                            Preço Original
+                                        </label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text">R$</span>
+                                            <input type="number" class="form-control" id="produto_preco_de" name="produto_preco_de" step="0.01" min="0" placeholder="0.00">
+                                        </div>
+                                        <small class="form-text text-muted">Preço antes do desconto (opcional)</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="produto_custo" class="form-label">
+                                            Custo do Produto
+                                        </label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text">R$</span>
+                                            <input type="number" class="form-control" id="produto_custo" name="produto_custo" step="0.01" min="0" placeholder="0.00">
+                                        </div>
+                                        <small class="form-text text-muted">Custo de aquisição (uso interno)</small>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-info mt-4" role="alert">
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    <strong>Desconto calculado automaticamente:</strong> <span id="descontoCalculado">0%</span>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label for="produto_estoque" class="form-label">
+                                            Quantidade em Estoque <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text"><i class="bi bi-box"></i></span>
+                                            <input type="number" class="form-control" id="produto_estoque" name="produto_estoque" min="0" placeholder="0" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_estoque_minimo" class="form-label">
+                                            Estoque Mínimo
+                                        </label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text"><i class="bi bi-exclamation-triangle"></i></span>
+                                            <input type="number" class="form-control" id="produto_estoque_minimo" name="produto_estoque_minimo" min="0" placeholder="5">
+                                        </div>
+                                        <small class="form-text text-muted">Alerta quando estoque atingir este valor</small>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-6">
+                                        <label for="produto_gerenciar_estoque" class="form-label">Gerenciar Estoque</label>
+                                        <div class="form-check form-switch form-switch-lg">
+                                            <input class="form-check-input" type="checkbox" id="produto_gerenciar_estoque" name="produto_gerenciar_estoque" checked>
+                                            <label class="form-check-label" for="produto_gerenciar_estoque">
+                                                Controlar estoque automaticamente
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_permitir_compra_sem_estoque" class="form-label">Permitir Compra sem Estoque</label>
+                                        <div class="form-check form-switch form-switch-lg">
+                                            <input class="form-check-input" type="checkbox" id="produto_permitir_compra_sem_estoque" name="produto_permitir_compra_sem_estoque">
+                                            <label class="form-check-label" for="produto_permitir_compra_sem_estoque">
+                                                Permitir vendas mesmo sem estoque
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="row g-3 mt-2">
-                            <div class="col-md-12">
-                                <label for="produto_imagem" class="form-label">Imagem do Produto</label>
-                                <input type="file" class="form-control" id="produto_imagem" name="produto_imagem" accept="image/*">
-                                <small class="form-text text-muted">Formatos aceitos: JPG, PNG, GIF (máx. 5MB)</small>
+
+                            <!-- Tab 4: Imagens & Mídia -->
+                            <div class="tab-pane fade" id="media" role="tabpanel">
+                                <div class="section-header mb-4">
+                                    <h5 class="section-title">
+                                        <i class="bi bi-images text-primary me-2"></i>
+                                        Imagens e Mídia do Produto
+                                    </h5>
+                                    <p class="text-muted mb-0">Adicione imagens e vídeos do produto</p>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-12">
+                                        <label for="produto_imagem_principal" class="form-label">
+                                            Imagem Principal <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="upload-area">
+                                            <input type="file" class="form-control" id="produto_imagem_principal" name="produto_imagem_principal" accept="image/*" required>
+                                            <small class="form-text text-muted d-block mt-2">Imagem que aparecerá como principal. Formatos: JPG, PNG, GIF (máx. 5MB)</small>
+                                        </div>
+                                        <div class="preview-image mt-3" id="previewPrincipal" style="display: none;">
+                                            <img src="" alt="Preview" class="img-thumbnail" style="max-width: 200px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label for="produto_galeria" class="form-label">
+                                            Galeria de Imagens
+                                        </label>
+                                        <input type="file" class="form-control" id="produto_galeria" name="produto_galeria[]" accept="image/*" multiple>
+                                        <small class="form-text text-muted">Selecione múltiplas imagens (máx. 10 imagens, 5MB cada)</small>
+                                        <div class="gallery-preview mt-3 d-flex flex-wrap gap-2" id="galleryPreview"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Imagens Adicionadas</label>
+                                        <div class="image-gallery">
+                                            <p class="text-muted text-center py-4">
+                                                <i class="bi bi-images fs-1 d-block mb-2"></i>
+                                                Nenhuma imagem adicionada ainda
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <div class="d-flex gap-2 justify-content-end">
-                                    <a href="products/list.html" class="btn btn-outline-secondary">
-                                        <i class="bi bi-x-circle me-2"></i>
-                                        Cancelar
-                                    </a>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="bi bi-check-circle me-2"></i>
-                                        Salvar Produto
-                                    </button>
+
+                            <!-- Tab 5: Categorização -->
+                            <div class="tab-pane fade" id="categorization" role="tabpanel">
+                                <div class="section-header mb-4">
+                                    <h5 class="section-title">
+                                        <i class="bi bi-tags text-primary me-2"></i>
+                                        Categorização e Organização
+                                    </h5>
+                                    <p class="text-muted mb-0">Organize o produto em categorias e adicione tags</p>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label for="produto_categoria" class="form-label">
+                                            Categoria Principal <span class="text-danger">*</span>
+                                        </label>
+                                        <select name="produto_categoria" id="produto_categoria" class="form-select form-select-lg" required>
+                                            <option value="">Selecione uma categoria...</option>
+                                            <option value="1">Eletrônicos</option>
+                                            <option value="2">Roupas</option>
+                                            <option value="3">Casa e Decoração</option>
+                                            <option value="4">Livros</option>
+                                            <option value="5">Esportes</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_subcategoria" class="form-label">
+                                            Subcategoria
+                                        </label>
+                                        <select name="produto_subcategoria" id="produto_subcategoria" class="form-select form-select-lg">
+                                            <option value="">Selecione uma subcategoria...</option>
+                                            <option value="1">Subcategoria 1</option>
+                                            <option value="2">Subcategoria 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-6">
+                                        <label for="produto_fabricante" class="form-label">
+                                            Fabricante/Marca
+                                        </label>
+                                        <select name="produto_fabricante" id="produto_fabricante" class="form-select form-select-lg">
+                                            <option value="">Selecione um fabricante...</option>
+                                            <option value="1">Fabricante A</option>
+                                            <option value="2">Fabricante B</option>
+                                            <option value="3">Fabricante C</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_tags" class="form-label">
+                                            Tags/Palavras-chave
+                                        </label>
+                                        <input type="text" class="form-control form-select-lg" id="produto_tags" name="produto_tags" placeholder="tag1, tag2, tag3">
+                                        <small class="form-text text-muted">Separe as tags por vírgula</small>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Tags Selecionadas</label>
+                                        <div class="tags-container d-flex flex-wrap gap-2" id="tagsContainer">
+                                            <span class="badge bg-secondary">Nenhuma tag adicionada</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 6: Envio & Dimensões -->
+                            <div class="tab-pane fade" id="shipping" role="tabpanel">
+                                <div class="section-header mb-4">
+                                    <h5 class="section-title">
+                                        <i class="bi bi-truck text-primary me-2"></i>
+                                        Envio e Dimensões
+                                    </h5>
+                                    <p class="text-muted mb-0">Configure informações de envio e dimensões do produto</p>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-3">
+                                        <label for="produto_peso" class="form-label">
+                                            Peso (kg) <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="produto_peso" name="produto_peso" step="0.001" min="0" placeholder="0.000" required>
+                                            <span class="input-group-text">kg</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="produto_comprimento" class="form-label">
+                                            Comprimento (cm)
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="produto_comprimento" name="produto_comprimento" step="0.1" min="0" placeholder="0.0">
+                                            <span class="input-group-text">cm</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="produto_largura" class="form-label">
+                                            Largura (cm)
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="produto_largura" name="produto_largura" step="0.1" min="0" placeholder="0.0">
+                                            <span class="input-group-text">cm</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="produto_altura" class="form-label">
+                                            Altura (cm)
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="produto_altura" name="produto_altura" step="0.1" min="0" placeholder="0.0">
+                                            <span class="input-group-text">cm</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-info mt-4" role="alert">
+                                    <i class="bi bi-calculator me-2"></i>
+                                    <strong>Volume calculado:</strong> <span id="volumeCalculado">0 cm³</span>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label for="produto_frete_gratis" class="form-label">Frete Grátis</label>
+                                        <div class="form-check form-switch form-switch-lg">
+                                            <input class="form-check-input" type="checkbox" id="produto_frete_gratis" name="produto_frete_gratis">
+                                            <label class="form-check-label" for="produto_frete_gratis">
+                                                Oferecer frete grátis para este produto
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_tipo_envio" class="form-label">Tipo de Envio</label>
+                                        <select name="produto_tipo_envio" id="produto_tipo_envio" class="form-select">
+                                            <option value="normal">Envio Normal</option>
+                                            <option value="expresso">Envio Expresso</option>
+                                            <option value="retirada">Retirada na Loja</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-6">
+                                        <label for="produto_prazo_entrega" class="form-label">Prazo de Entrega (dias)</label>
+                                        <input type="number" class="form-control" id="produto_prazo_entrega" name="produto_prazo_entrega" min="1" placeholder="7">
+                                        <small class="form-text text-muted">Prazo estimado de entrega em dias úteis</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="produto_origem" class="form-label">Origem do Produto</label>
+                                        <select name="produto_origem" id="produto_origem" class="form-select">
+                                            <option value="nacional">Nacional</option>
+                                            <option value="importado">Importado</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 7: SEO -->
+                            <div class="tab-pane fade" id="seo" role="tabpanel">
+                                <div class="section-header mb-4">
+                                    <h5 class="section-title">
+                                        <i class="bi bi-search text-primary me-2"></i>
+                                        Otimização para Buscas (SEO)
+                                    </h5>
+                                    <p class="text-muted mb-0">Configure as informações de SEO para melhorar a visibilidade nas buscas</p>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-12">
+                                        <label for="produto_meta_titulo" class="form-label">
+                                            Meta Título
+                                        </label>
+                                        <input type="text" class="form-control" id="produto_meta_titulo" name="produto_meta_titulo" placeholder="Título otimizado para SEO (50-60 caracteres)">
+                                        <small class="form-text text-muted">Título que aparece nos resultados de busca. Ideal: 50-60 caracteres</small>
+                                        <div class="text-end mt-1">
+                                            <span class="badge bg-secondary" id="metaTitleCount">0/60</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label for="produto_meta_descricao" class="form-label">
+                                            Meta Descrição
+                                        </label>
+                                        <textarea class="form-control" id="produto_meta_descricao" name="produto_meta_descricao" rows="3" placeholder="Descrição otimizada para SEO (150-160 caracteres)"></textarea>
+                                        <small class="form-text text-muted">Descrição que aparece nos resultados de busca. Ideal: 150-160 caracteres</small>
+                                        <div class="text-end mt-1">
+                                            <span class="badge bg-secondary" id="metaDescCount">0/160</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label for="produto_slug" class="form-label">
+                                            URL Amigável (Slug)
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">/produto/</span>
+                                            <input type="text" class="form-control" id="produto_slug" name="produto_slug" placeholder="produto-exemplo">
+                                        </div>
+                                        <small class="form-text text-muted">URL amigável gerada automaticamente a partir do título</small>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-12">
+                                        <label for="produto_palavras_chave" class="form-label">
+                                            Palavras-chave (Keywords)
+                                        </label>
+                                        <input type="text" class="form-control" id="produto_palavras_chave" name="produto_palavras_chave" placeholder="palavra1, palavra2, palavra3">
+                                        <small class="form-text text-muted">Separe as palavras-chave por vírgula</small>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-warning mt-4" role="alert">
+                                    <i class="bi bi-exclamation-triangle me-2"></i>
+                                    <strong>Dica:</strong> Use palavras-chave relevantes e evite o excesso de palavras-chave (keyword stuffing).
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Action Buttons -->
+                <div class="content-card mt-4">
+                    <div class="card-body-custom">
+                        <div class="d-flex gap-2 justify-content-between align-items-center flex-wrap">
+                            <div>
+                                <a href="products/list.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left me-2"></i>
+                                    Voltar para Lista
+                                </a>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-outline-primary" id="btnSalvarRascunho">
+                                    <i class="bi bi-save me-2"></i>
+                                    Salvar como Rascunho
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-check-circle me-2"></i>
+                                    Salvar Produto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </main>
     </div>
     
@@ -246,5 +739,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JS Customizado -->
     <script src="assets/js/admin.js"></script>
+    <script src="assets/js/product-form.js"></script>
 </body>
 </html>
