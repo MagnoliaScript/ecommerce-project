@@ -1,65 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastrar Produto - Magnolia</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
-
 <body>
-    <div class="row">
-        <div class="mb-3 col-md-6">
-            <label for="produto_titulo" class="form-label">Título</label>
-            <input type="text" class="form-control" id="produto_titulo" name="produto_titulo" >
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-logo">
+                <i class="bi bi-flower1"></i>
+                <span>Magnolia</span>
+            </h3>
+            <button class="btn-close-sidebar d-lg-none" id="btnCloseSidebar">
+                <i class="bi bi-x-lg"></i>
+            </button>
         </div>
-        <div class="mb-3 col-md-6">
-            <label for="produto_status" class="form-label">Status</label>
-            <select name="produto_status" id="produto_status">
-                <option value="1">Ativo</option>
-                <option value="0">Inativo</option>
-            </select>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-divider">
+                    <span>Produtos</span>
+                </li>
+                <li class="nav-item">
+                    <a href="products/list.html" class="nav-link">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Listar Produtos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="cadastro_produto.html" class="nav-link active">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>Cadastrar Produto</span>
+                    </a>
+                </li>
+                <li class="nav-divider">
+                    <span>Vendas</span>
+                </li>
+                <li class="nav-item">
+                    <a href="orders/list.html" class="nav-link">
+                        <i class="bi bi-cart-check"></i>
+                        <span>Pedidos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders/reports.html" class="nav-link">
+                        <i class="bi bi-graph-up"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li class="nav-divider">
+                    <span>Configurações</span>
+                </li>
+                <li class="nav-item">
+                    <a href="settings/general.html" class="nav-link">
+                        <i class="bi bi-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="users/list.html" class="nav-link">
+                        <i class="bi bi-people"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name">Admin</span>
+                    <span class="user-role">Administrador</span>
+                </div>
+            </div>
+            <a href="../logout.html" class="btn-logout">
+                <i class="bi bi-box-arrow-right"></i>
+            </a>
         </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <button class="btn-toggle-sidebar d-lg-none" id="btnToggleSidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <h1 class="page-title">Cadastrar Produto</h1>
+            </div>
+            <div class="header-right">
+                <div class="header-search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Buscar..." class="form-control">
+                </div>
+                <div class="header-notifications">
+                    <button class="btn-icon" data-bs-toggle="dropdown">
+                        <i class="bi bi-bell"></i>
+                        <span class="badge-notification">3</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header">Notificações</h6></li>
+                        <li><a class="dropdown-item" href="#">Novo pedido recebido</a></li>
+                        <li><a class="dropdown-item" href="#">Produto com estoque baixo</a></li>
+                        <li><a class="dropdown-item" href="#">Atualização disponível</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Content Area -->
+        <main class="main-content">
+            <div class="content-card">
+                <div class="card-header-custom">
+                    <h5 class="card-title">Informações do Produto</h5>
+                </div>
+                <div class="card-body-custom">
+                    <form id="formProduto">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="produto_titulo" class="form-label">Título <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="produto_titulo" name="produto_titulo" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="produto_status" class="form-label">Status <span class="text-danger">*</span></label>
+                                <select name="produto_status" id="produto_status" class="form-select" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="1">Ativo</option>
+                                    <option value="0">Inativo</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <label for="produto_sku" class="form-label">SKU <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="produto_sku" name="produto_sku" required>
+                                <small class="form-text text-muted">Código único do produto</small>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="produto_estoque" class="form-label">Estoque <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="produto_estoque" name="produto_estoque" min="0" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <label for="produto_desc_maior" class="form-label">Descrição Detalhada</label>
+                                <textarea class="form-control" id="produto_desc_maior" name="produto_desc_maior" rows="4"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="produto_desc_menor" class="form-label">Descrição Resumida</label>
+                                <textarea class="form-control" id="produto_desc_menor" name="produto_desc_menor" rows="4"></textarea>
+                                <small class="form-text text-muted">Aparece em listagens e cards</small>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <label for="produto_preco_de" class="form-label">Preço de (R$)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="produto_preco_de" name="produto_preco_de" step="0.01" min="0" placeholder="0.00">
+                                </div>
+                                <small class="form-text text-muted">Preço original (opcional)</small>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="produto_preco_por" class="form-label">Preço por (R$) <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="produto_preco_por" name="produto_preco_por" step="0.01" min="0" placeholder="0.00" required>
+                                </div>
+                                <small class="form-text text-muted">Preço de venda atual</small>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <label for="produto_fabricante" class="form-label">Fabricante</label>
+                                <select name="produto_fabricante" id="produto_fabricante" class="form-select">
+                                    <option value="">Selecione...</option>
+                                    <option value="1">Fabricante A</option>
+                                    <option value="2">Fabricante B</option>
+                                    <option value="3">Fabricante C</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="produto_categoria" class="form-label">Categoria</label>
+                                <select name="produto_categoria" id="produto_categoria" class="form-select">
+                                    <option value="">Selecione...</option>
+                                    <option value="1">Categoria 1</option>
+                                    <option value="2">Categoria 2</option>
+                                    <option value="3">Categoria 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-12">
+                                <label for="produto_imagem" class="form-label">Imagem do Produto</label>
+                                <input type="file" class="form-control" id="produto_imagem" name="produto_imagem" accept="image/*">
+                                <small class="form-text text-muted">Formatos aceitos: JPG, PNG, GIF (máx. 5MB)</small>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex gap-2 justify-content-end">
+                                    <a href="products/list.html" class="btn btn-outline-secondary">
+                                        <i class="bi bi-x-circle me-2"></i>
+                                        Cancelar
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-check-circle me-2"></i>
+                                        Salvar Produto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
     </div>
-    <div class="row">
-        <div class="mb-3 col-md-6">
-            <label for="produto_sku" class="form-label">Sku</label>
-            <input type="text" class="form-control" id="produto_sku" name="produto_sku">
-        </div>
-        <div class="mb-3 col-md-6">
-            <label for="produto_estoque" class="form-label">Estoque</label>
-            <input type="text" class="form-control" id="produto_estoque" name="produto_estoque">
-        </div>
-    </div>
-    <div class="row">
-        <div class="mb-3 col-md-6">
-            <label for="produto_desc_maior" class="form-label">Descrição maior</label>
-            <input type="text" class="form-control" id="produto_desc_maior" name="produto_desc_maior">
-        </div>
-        <div class="mb-3 col-md-6">
-            <label for="produto_desc_menor" class="form-label">Descrição menor</label>
-            <input type="text" class="form-control" id="produto_desc_menor" name="produto_desc_menor">
-        </div>
-    </div>
-    <div class="row">
-        <div class="mb-3 col-md-6">
-            <label for="produto_preco_de" class="form-label">Preço de</label>
-            <input type="text" class="form-control" id="produto_preco_de" name="produto_preco_de">
-        </div>
-        <div class="mb-3 col-md-6">
-            <label for="produto_preco_por" class="form-label">Preço por</label>
-            <input type="text" class="form-control" id="produto_preco_por" name="produto_preco_por">
-        </div>
-    </div>
-    <div class="row">
-        <div class="mb-3 col-md-6">
-            <label for="produto_fabricante" class="form-label">E-mail</label>
-            <select name="produto_fabricante" id="produto_fabricante">
-                <option value="1">Ativo</option>
-                <option value="0">Inativo</option>
-            </select>
-        </div>
-    </div>
+    
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Customizado -->
+    <script src="assets/js/admin.js"></script>
 </body>
-
 </html>
